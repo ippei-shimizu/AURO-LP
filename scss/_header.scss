@@ -1,0 +1,159 @@
+@use "./setting" as *;
+
+.menu {
+  position: fixed;
+  top: 57px;
+  right: 53px;
+  z-index: 9999;
+  cursor: pointer;
+  img {
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity .3s ease, visibility .3s ease;
+  }
+}
+.menu-open {
+  &.open {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.menu-close {
+  opacity: 0;
+  visibility: hidden;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.nav {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url(../images/bg.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 4%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -10;
+  transition: opacity .3s ease, visibility .3s ease;
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+  }
+  img {
+    mix-blend-mode: multiply;
+  }
+}
+.nav-pc {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.nav-logo {
+  margin-bottom: 73px;
+  a {
+    display: block;
+    span {
+      display: block;
+      color: var(--AURO_, #553219);
+      text-align: justify;
+      font-family: $family-a-otf-jun-pro;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 505;
+      line-height: normal;
+      letter-spacing: 1.6px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+}
+.nav-list {
+  display: flex;
+  column-gap: 107px;
+  margin-bottom: 100px;
+  ul {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+  }
+  a {
+    color: var(--AURO_, #553219);
+    text-align: center;
+    font-family: $family-a-otf-jun-pro;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 505;
+    line-height: normal;
+    letter-spacing: 2.4px;
+  }
+}
+.shop-list {
+  p {
+    color: var(--AURO_, #553219);
+    text-align: center;
+    font-family: $family-shirokuma;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: -13.5px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+.shop-icon {
+  display: flex;
+  column-gap: 50px;
+  img {
+    display: block;
+    mix-blend-mode: initial;
+  }
+}
+.nav-info {
+  position: absolute;
+  bottom: 83px;
+  right: 143px;
+  span {
+    display: block;
+    color: var(--AURO_, #553219);
+    font-family: $family-shirokuma;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: -13.5px;
+  }
+  .tel-num {
+    color: var(--AURO_, #553219);
+    font-family: $family-a-otf-jun-pro;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 3.6px;
+  }
+  .email {
+    display: block;
+    margin-top: 19px;
+  }
+}
+.nav-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}

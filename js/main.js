@@ -8,6 +8,22 @@ $(document).ready(function () {
 });
 
 window.addEventListener("load", () => {
+  document.getElementById("menu").addEventListener("click", function () {
+    const menuOpenElem = document.querySelector(".menu-open");
+    const menuCloseElem = document.querySelector(".menu-close");
+    const navElem = document.querySelector(".nav");
+
+    if (menuOpenElem.classList.contains("open")) {
+      menuOpenElem.classList.remove("open");
+      menuCloseElem.classList.remove("open");
+      navElem.classList.remove("open");
+    } else {
+      menuOpenElem.classList.add("open");
+      menuCloseElem.classList.add("open");
+      navElem.classList.add("open");
+    }
+  });
+
   const elem = document.querySelector(".swiper-container");
   if (elem === null) return;
 
