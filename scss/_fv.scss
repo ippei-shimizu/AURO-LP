@@ -30,24 +30,6 @@ img {
   height: auto;
 }
 
-#fullpage {
-  .section {
-    position: relative;
-    h1 {
-      text-align: center;
-      color: white;
-      font-size: 3.5em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      text-align: center;
-      color: white;
-      font-size: 2.5em;
-    }
-  }
-}
-
 .fullpage-wrapper {
   width: 100% !important;
   transform: none !important;
@@ -272,4 +254,69 @@ img {
   animation-delay: 7s;
   right: 25%;
   top: -40px;
+}
+
+.wood-left {
+  position: absolute;
+  left: 0;
+  top: 6%;
+  z-index: 1;
+}
+.wood-right {
+  position: absolute;
+  top: 16%;
+  right: 0;
+  z-index: 1;
+}
+.section2-title {
+  position: relative;
+  z-index: 3;
+  h2 {
+    color: var(--AURO_, #553219);
+    font-family: $family-shirokuma;
+    text-align: center;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 80px;
+    letter-spacing: -12.8px;
+    width: fit-content;
+    margin: 0 auto;
+    .to {
+      letter-spacing: -5.12px;
+    }
+    .boku {
+      letter-spacing: -6.4px;
+    }
+    .ohanashi {
+      letter-spacing: -5.12px;
+    }
+  }
+}
+.section2-sub-title {
+  width: fit-content;
+  margin: 2px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h3 {
+    color: var(--AURO_, #553219);
+    text-align: center;
+    font-family: $family-annie-use-your-telescope;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5.6px;
+  }
+  .sub-leaf {
+    display: block;
+    width: 58.365px;
+    height: 48.39px;
+  }
+}
+
+.penki-img {
+  display: block;
+  margin: 0 auto;
 }
