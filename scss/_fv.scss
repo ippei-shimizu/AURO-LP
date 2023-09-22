@@ -616,3 +616,51 @@ img {
   right: 23%;
   z-index: 1;
 }
+
+.wax-03 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-09-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: fit-content;
+  margin: 0 auto;
+  .text-box {
+    .text-2 {
+      &:nth-child(1) {
+        margin-bottom: 62px;
+      }
+    }
+  }
+}
+
+.senzai-01 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.senzai-02 {
+  position: absolute;
+  right: 0;
+  top: 55%;
+  transform: translateY(-50%);
+}
+.section-11-text {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-left: 8%;
+  .text-box {
+    &:nth-child(1) {
+      margin-bottom: 70%;
+    }
+  }
+}
