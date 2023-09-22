@@ -415,6 +415,230 @@ img {
   left: -26px;
 }
 
+.penki-05 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 1190px;
+}
+
+.section5-text-01 {
+  position: absolute;
+  z-index: 1;
+  top: 9%;
+  left: 14%;
+}
+
+.section5-text-02 {
+  position: absolute;
+  z-index: 1;
+  top: 17%;
+  left: 24%;
+}
+
+.section5-text-03 {
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  right: 16%;
+}
+
+.section5-text-04 {
+  position: absolute;
+  z-index: 1;
+  top: 55%;
+  right: 10%;
+}
+
+.ato-07 {
+  position: absolute;
+  top: 4%;
+  left: 8%;
+  z-index: 2;
+}
+
+.ato-08 {
+  position: absolute;
+  top: 8%;
+  left: 29%;
+  z-index: 2;
+}
+
+.ato-09 {
+  position: absolute;
+  top: 5%;
+  left: 35%;
+  z-index: 2;
+}
+
+.ato-10 {
+  position: absolute;
+  z-index: 2;
+  top: 16%;
+  right: 20%;
+}
+
+.ato-11 {
+  position: absolute;
+  z-index: 2;
+  top: 5%;
+  right: 14%;
+}
+
+.ato-12 {
+  position: absolute;
+  z-index: 2;
+  top: 42%;
+  right: 12%;
+}
+
+.ato-13 {
+  position: absolute;
+  z-index: 2;
+  bottom: 10%;
+  right: 20%;
+}
+
+.ato-14 {
+  position: absolute;
+  z-index: 2;
+  bottom: 4%;
+  right: 13%;
+}
+
+.ato-15 {
+  position: absolute;
+  z-index: 2;
+  bottom: 12%;
+  right: 15%;
+}
+
+.penki-06 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wax-01 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section7-text-01 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: 1;
+}
+.section7-text-01 .text-box:nth-child(1) {
+  margin-bottom: 35px;
+}
+.section7-text-01 .text-box:nth-child(3) {
+  margin-bottom: 35px;
+}
+.section7-text-01 .text-box:nth-child(4) {
+  margin-top: 0;
+}
+
+.wax-02 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.section-08-text-01 {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  right: 30%;
+}
+
+.section-08-text-02 {
+  position: absolute;
+  top: 26%;
+  right: 20%;
+  z-index: 1;
+}
+
+.section-08-text-03 {
+  position: absolute;
+  top: 42%;
+  right: 8%;
+  z-index: 1;
+}
+
+.section-08-text-04 {
+  position: absolute;
+  top: 61%;
+  right: 12%;
+  z-index: 1;
+}
+
+.section-08-text-05 {
+  position: absolute;
+  top: 79%;
+  right: 12%;
+  z-index: 1;
+}
+
+.star-01 {
+  position: absolute;
+  top: 12%;
+  right: 55%;
+  z-index: 1;
+}
+
+.star-02 {
+  position: absolute;
+  top: 9%;
+  right: 53%;
+  z-index: 1;
+}
+
+.star-03 {
+  position: absolute;
+  top: 26%;
+  right: 15%;
+  z-index: 1;
+}
+
+.star-04 {
+  position: absolute;
+  top: 32%;
+  right: 13%;
+  z-index: 1;
+}
+
+.star-05 {
+  position: absolute;
+  top: 54%;
+  right: 13%;
+  z-index: 1;
+}
+
+.star-06 {
+  position: absolute;
+  top: 61%;
+  right: 5%;
+  z-index: 1;
+}
+
+.star-07 {
+  position: absolute;
+  top: 66%;
+  right: 7%;
+  z-index: 1;
+}
+
+.star-08 {
+  position: absolute;
+  top: 69%;
+  right: 23%;
+  z-index: 1;
+}
+
 .menu {
   position: fixed;
   top: 57px;
