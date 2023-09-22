@@ -312,6 +312,109 @@ img {
   margin: 0 auto;
 }
 
+.penki-02 {
+  width: 82%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 1100px;
+}
+
+.section-3-text {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  margin: 0 12% 0 auto;
+  top: -140px;
+}
+
+.text-box:nth-child(even) {
+  margin: 58px auto;
+}
+.text-box:last-child {
+  margin-bottom: 0;
+}
+
+.text-2 {
+  color: var(--AURO_, #553219);
+  text-align: center;
+  font-family: "";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 505;
+  line-height: normal;
+  letter-spacing: 4px;
+}
+
+.penki-03 {
+  width: 83%;
+  max-width: 1186px;
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.section-4-text {
+  width: fit-content;
+  position: absolute;
+  z-index: 1;
+  top: 9%;
+  right: 18%;
+}
+.section-4-text .text-box .text-2:nth-child(1) {
+  margin-bottom: 43px;
+}
+
+.section-4-text-02 {
+  z-index: 1;
+  width: fit-content;
+  position: absolute;
+  left: 8%;
+  top: 32%;
+}
+
+.ato-box-01 {
+  position: absolute;
+  top: 15%;
+  right: 41%;
+}
+
+.ato-01 {
+  position: relative;
+  top: -13px;
+  right: 90%;
+}
+
+.ato-02 {
+  position: relative;
+  top: 10px;
+  right: 74%;
+}
+
+.ato-03 {
+  position: relative;
+  top: -61px;
+  right: 62%;
+}
+
+.ato-04 {
+  position: relative;
+  top: 18px;
+}
+
+.ato-box-02 {
+  position: absolute;
+  bottom: 110px;
+  left: 12%;
+}
+
+.ato-05 {
+  position: relative;
+  top: -80px;
+  left: -26px;
+}
+
 .menu {
   position: fixed;
   top: 57px;
