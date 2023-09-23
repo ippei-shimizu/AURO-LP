@@ -178,6 +178,49 @@ window.addEventListener("load", () => {
       });
     });
   });
+
+  // gsap
+  gsap.registerPlugin(ScrollTrigger);
+
+  // wood-left animation
+  gsap.from(".wood-left", {
+    scrollTrigger: {
+      trigger: ".wood-left",
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+      once: true,
+    },
+    x: "-100%",
+    duration: 2,
+    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+  });
+
+  // wood-right animation
+  gsap.from(".wood-right", {
+    scrollTrigger: {
+      trigger: ".wood-right",
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+      once: true,
+    },
+    x: "100%",
+    duration: 2,
+    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+  });
+
+  gsap.from(".fade-in-01", {
+    scrollTrigger: {
+      trigger: ".fade-in-01",
+      start: "top bottom",
+      once: true,
+    },
+    filter: "blur(10px)",
+    scale: 1.02,
+    opacity: 0,
+    duration: 1,
+    delay: 0.6,
+    ease: "power1.out",
+  });
 });
 
 function updateSideVisibility() {
