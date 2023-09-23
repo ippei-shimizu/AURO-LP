@@ -161,21 +161,82 @@ window.addEventListener("load", () => {
       });
     });
 
-    const pageLinks = document.querySelectorAll(".page-link");
-    pageLinks.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        const targetId = event.currentTarget.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-        const headerOffset = 220;
-        const targetPosition =
-          targetElement.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerOffset;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
+  const pageLinks = document.querySelectorAll(".page-link");
+  pageLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      const headerOffset = 220;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerOffset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
       });
     });
+  });
 });
+
+function updateSideVisibility() {
+  // 画面幅が790px以上の場合は関数を終了
+  if (window.innerWidth > 790) return;
+
+  // 各要素の位置情報を取得
+  const spSideSection2Top = document
+    .getElementById("section2")
+    .getBoundingClientRect().top;
+  const spSideSection5Top = document
+    .getElementById("section5")
+    .getBoundingClientRect().top;
+  const spSideSection6Top = document
+    .getElementById("section6")
+    .getBoundingClientRect().top;
+  const spSideSection9Top = document
+    .getElementById("section9")
+    .getBoundingClientRect().top;
+  const spSideSection10Top = document
+    .getElementById("section10")
+    .getBoundingClientRect().top;
+  const spSideSection13Top = document
+    .getElementById("section13")
+    .getBoundingClientRect().top;
+
+  // 各要素の位置情報に基づき、指定された要素の表示状態を更新
+  const spSideSection2Elem = document.getElementById("spSideSection2");
+  const spSideSection3Elem = document.getElementById("spSideSection3");
+  const spSideSection4Elem = document.getElementById("spSideSection4");
+
+  if (spSideSection2Top < window.innerHeight && spSideSection5Top > 0) {
+    spSideSection2Elem.style.opacity = "1";
+    spSideSection2Elem.style.visibility = "visible";
+  } else {
+    spSideSection2Elem.style.opacity = "0";
+    spSideSection2Elem.style.visibility = "hidden";
+  }
+
+  if (spSideSection6Top < window.innerHeight && spSideSection9Top > 0) {
+    spSideSection3Elem.style.opacity = "1";
+    spSideSection3Elem.style.visibility = "visible";
+  } else {
+    spSideSection3Elem.style.opacity = "0";
+    spSideSection3Elem.style.visibility = "hidden";
+  }
+
+  if (spSideSection10Top < window.innerHeight && spSideSection13Top > 0) {
+    spSideSection4Elem.style.opacity = "1";
+    spSideSection4Elem.style.visibility = "visible";
+  } else {
+    spSideSection4Elem.style.opacity = "0";
+    spSideSection4Elem.style.visibility = "hidden";
+  }
+}
+
+// スクロールイベントとリサイズイベントでupdateSideVisibility関数を呼び出す
+window.addEventListener("scroll", updateSideVisibility);
+window.addEventListener("resize", updateSideVisibility);
+
+// ページの初期読み込み時にも関数を呼び出す
+window.addEventListener("load", updateSideVisibility);
