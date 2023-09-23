@@ -1224,6 +1224,10 @@ img {
   display: none;
 }
 
+.side-menu-sp {
+  display: none;
+}
+
 @media screen and (max-width: 790px) {
   #fullpage {
     overflow: hidden;
@@ -1771,7 +1775,14 @@ img {
     right: 17%;
   }
   #section13 {
-    padding-bottom: 35px;
+    padding-bottom: 60px;
+  }
+  #section13 .section-08-text-01 {
+    padding-top: 90px;
+    margin-bottom: 84px;
+  }
+  #section13 .section-08-text-01 .text-box .text-2:nth-child(1) {
+    margin-bottom: 31px;
   }
   #section13 .section-08-text-05 {
     display: block;
@@ -1785,13 +1796,6 @@ img {
     width: 114%;
     margin: 164px auto 0;
     display: block;
-  }
-  .section-08-text-01 {
-    padding-top: 90px;
-    margin-bottom: 84px;
-  }
-  .section-08-text-01 .text-box .text-2:nth-child(1) {
-    margin-bottom: 31px;
   }
   .section-08-text-04-02 {
     display: block;
@@ -1853,6 +1857,236 @@ img {
     bottom: initial;
     right: 22%;
     top: 61%;
+  }
+  #section13-2 {
+    padding-bottom: 198px;
+  }
+  .section-13-text-01 {
+    transform: initial;
+    padding-top: 132px;
+  }
+  .senzai-05 {
+    transform: initial;
+    width: 100%;
+    margin-top: 145px;
+  }
+  .awa-14 {
+    width: 38px;
+    top: 9%;
+    left: 9%;
+  }
+  .awa-15 {
+    width: 18px;
+    top: 7%;
+    left: 40%;
+  }
+  .awa-16 {
+    width: 37px;
+    top: 0;
+    left: 30%;
+  }
+  .awa-17 {
+    top: 8%;
+    left: 56%;
+    width: 41px;
+  }
+  .awa-18 {
+    width: 44px;
+    top: 4%;
+    left: 70%;
+  }
+  .awa-19 {
+    width: 17px;
+    top: 26%;
+    left: 74%;
+  }
+  .awa-20 {
+    width: 17px;
+    top: 36%;
+    left: 47%;
+  }
+  .awa-21 {
+    width: 36px;
+    top: 31%;
+    left: 30%;
+  }
+  .awa-22 {
+    width: 42px;
+    top: 31%;
+    right: 13%;
+  }
+  .awa-23 {
+    display: none;
+  }
+  .awa-24 {
+    display: none;
+  }
+  .awa-25 {
+    display: none;
+  }
+  .awa-26 {
+    display: none;
+  }
+  #section14 .section-14-text-01 {
+    margin: 0 auto;
+  }
+  #section14 .section-14-text-02 {
+    margin: 31px auto 0;
+  }
+  .senzai-06 {
+    position: initial;
+    transform: initial;
+    margin: 106px auto 106px -59px;
+    width: 122%;
+  }
+  .section-14-text-03 {
+    display: none;
+  }
+  .section-14-text-04 {
+    display: none;
+  }
+  .section-14-text-03-02 {
+    margin-bottom: 30px;
+  }
+  #section15 {
+    padding: 88px 0 152px;
+  }
+  .senzai-07 {
+    transform: initial;
+    width: 132%;
+    margin: 0 auto 0 -55px;
+  }
+  #section16 {
+    padding-bottom: 177px;
+  }
+  #section16 .section2-sub-title {
+    margin-top: 0;
+  }
+  #section16 .section2-sub-title h3 {
+    font-size: 16px;
+    letter-spacing: 3.2px;
+  }
+  .section16-title {
+    padding-top: 234px;
+    position: relative;
+    z-index: 3;
+  }
+  .section16-title h2 {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -7.2px;
+  }
+  .sub-leaf-16 {
+    width: 28.465px;
+  }
+  .wood-03 {
+    position: absolute;
+    width: 252px;
+  }
+  .kuma {
+    transform: initial;
+    width: 126%;
+    margin: -44px auto 0 -52px;
+  }
+  .section-16-text {
+    margin-top: -70px;
+    padding: 0 45px;
+  }
+  .section-16-text .text-2 {
+    letter-spacing: 1.4px;
+  }
+  .side-menu {
+    display: none;
+  }
+  .side-menu-sp {
+    display: block;
+    position: relative;
+    z-index: 3;
+  }
+  .side-menu-list-sp {
+    padding-top: 76px;
+    padding-bottom: 116px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  .side-menu-list-sp li {
+    border-radius: 100px;
+    width: 144.86px;
+  }
+  .side-menu-list-sp li a {
+    display: block;
+    color: var(--AURO_, #553219);
+    text-align: center;
+    font-family: "001Shirokuma-Regular";
+    font-size: 14.884px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20.837px; /* 140% */
+    letter-spacing: -1.488px;
+    background-color: #9dbf7b;
+    padding: 7px 12px 4px;
+    border-radius: 100px;
+  }
+  .footer-contents {
+    display: block;
+    padding-bottom: 170px;
+  }
+  .footer-logo-link img {
+    width: 152px;
+    margin-left: -24px;
+  }
+  .footer-left {
+    display: grid;
+    justify-content: flex-start;
+    position: relative;
+  }
+  .footer-info {
+    margin-top: 6px;
+    margin-bottom: 0;
+  }
+  .footer-info h2 {
+    font-size: 12px;
+    letter-spacing: 1.2px;
+  }
+  .footer-info .info-text {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .footer-info .info-tel {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 12px;
+  }
+  .footer-sns {
+    position: absolute;
+    right: 0;
+    bottom: -12px;
+    display: block;
+  }
+  .footer-sns img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 14px;
+  }
+  .footer-right {
+    display: none;
+  }
+  .footer-btm {
+    display: grid;
+    row-gap: 6px;
+    justify-content: initial;
+  }
+  .footer-btm p {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  #page-top {
+    right: 16px;
+    width: 21px;
+    height: 21px;
   }
 }
 .menu {

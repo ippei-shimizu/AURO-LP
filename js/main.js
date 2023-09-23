@@ -160,4 +160,22 @@ window.addEventListener("load", () => {
         behavior: "smooth",
       });
     });
+
+    const pageLinks = document.querySelectorAll(".page-link");
+    pageLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = event.currentTarget.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        const headerOffset = 220;
+        const targetPosition =
+          targetElement.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerOffset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+      });
+    });
 });
