@@ -12,7 +12,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: opacity .3s ease, visibility .3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 }
 .menu-open {
@@ -44,7 +44,7 @@
   opacity: 0;
   visibility: hidden;
   z-index: -10;
-  transition: opacity .3s ease, visibility .3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   &.open {
     opacity: 1;
     visibility: visible;
@@ -156,4 +156,94 @@
   left: 0;
   bottom: 0;
   z-index: -1;
+}
+.p-email-tel {
+  display: none;
+}
+.sp-nav-sns {
+  display: none;
+}
+
+@include media(bp790) {
+  .nav {
+    padding-top: 8vh;
+  }
+  .nav-logo {
+    margin-bottom: 33px;
+    img {
+      width: 137px;
+      height: 55px;
+      display: block;
+      margin: 0 auto;
+    }
+    a {
+      span {
+        font-size: 12px;
+        letter-spacing: 1.2px;
+      }
+    }
+  }
+  .nav-list {
+    margin-bottom: 0;
+    ul {
+      display: block;
+      .slash {
+        display: none;
+      }
+      li {
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      a {
+        font-size: 16px;
+        letter-spacing: 1.6px;
+      }
+    }
+    .nav-sns {
+      display: none;
+    }
+  }
+  .sp-email-tel {
+    display: flex;
+    gap: 37px;
+    margin: 37px auto 31px;
+    a {
+      display: block;
+    }
+  }
+  .shop-list {
+    p {
+      font-size: 24px;
+      letter-spacing: -10.8px;
+      margin-bottom: 15px;
+    }
+  }
+  .shop-icon {
+    column-gap: 16px;
+  }
+  .sp-auro-icon {
+    width: 92px;
+    height: 50px;
+    img {
+      width: 100%;
+    }
+  }
+  .sp-y-r-icon {
+    width: 50px;
+    height: 50px;
+    img {
+      width: 100%;
+    }
+  }
+  .sp-nav-sns {
+    display: flex;
+    column-gap: 25px;
+    margin-top: 46px;
+  }
+  .nav-info {
+    display: none;
+  }
+  .nav-bg {
+    width: 100%;
+  }
 }

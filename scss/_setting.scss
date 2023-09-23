@@ -5,23 +5,14 @@ $family-a-otf-jun-pro: "";
 $family-shirokuma: "001Shirokuma-Regular";
 $family-annie-use-your-telescope: "Annie Use Your Telescope";
 
-// font-family: A-OTF Jun Pro;
-// font-weight: 505;
-// font-weight: 600;
-
-// Annie Use Your Telescope
-// font-weight: 400;
-
 // ブレイクポイント
 $breakpoint-up: (
-  "min1024": "screen and (min-width: 1024px)",
-  "bp390": "screen and (max-width: 390px)",
-  "bp370": "screen and (max-width: 370px)",
-  "bp345": "screen and (max-width: 345px)"
+  "bp790": "screen and (max-width: 790px)",
 ) !default;
 
 // メディアクエリ
-@mixin media($breakpoint: "bp390") { // デフォルトのブレイクポイントをbp390に変更
+@mixin media($breakpoint: "bp390") {
+  // デフォルトのブレイクポイントをbp390に変更
   $media-query: map-get($breakpoint-up, $breakpoint);
 
   @if $media-query {
