@@ -24,6 +24,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Annie Use Your Telescope", cursive;
 }
 
 img {
@@ -663,4 +664,182 @@ img {
       margin-bottom: 70%;
     }
   }
+}
+
+.senzai-03 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.section-12-text-01 {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  .text-box {
+    .text-2 {
+      &:nth-child(1) {
+        margin-bottom: 48px;
+      }
+    }
+  }
+}
+.section-12-text-02 {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.awa-01 {
+  position: absolute;
+  z-index: 1;
+  left: 24%;
+    top: 17%;
+}
+.awa-02 {
+  position: absolute;
+  z-index: 1;
+  top: 7%;
+  right: 25%;
+}
+
+.senzai-04 {
+  width: 83%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 1100px;
+}
+#section13 {
+  .section-08-text-01 {
+    right: 20%;
+  }
+  .section-08-text-02 {
+    right: 11%;
+  }
+  .section-08-text-03 {
+    right: 7%;
+  }
+  .section-08-text-04 {
+    right: 11%;
+  }
+  .section-08-text-05 {
+    right: 13%;
+  }
+}
+.awa-img {
+  position: absolute;
+  z-index: 1;
+}
+.awa-03 {
+  top: 3%;
+  left: 15%;
+}
+.awa-04 {
+  top: 15%;
+  left: 22%;
+}
+.awa-05 {
+  top: 10%;
+  left: 40%;
+}
+.awa-06 {
+  top: 5%;
+  left: 44%;
+}
+.awa-07 {
+  top: 11%;
+  left: 51%;
+}
+.awa-08 {
+  top: 1%;
+  right: 20%;
+}
+.awa-09 {
+  top: 6%;
+  right: 13%;
+}
+.awa-10 {
+  top: 8%;
+  right: 10%;
+}
+.awa-11 {
+  right: 10%;
+  top: 47%;
+}
+.awa-12 {
+  top: 53%;
+  right: 17%;
+}
+.awa-13 {
+  bottom: 2%;
+  right: 22%;
+}
+
+.senzai-05 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-13-text-01 {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.awa-14 {
+  top: 50%;
+  left: 5%;
+}
+.awa-15 {
+  top: 32%;
+  left: 9%;
+}
+.awa-16 {
+  top: 16%;
+  left: 15%;
+}
+.awa-17 {
+  top: 8%;
+  left: 5%;
+}
+.awa-18 {
+  top: 1%;
+  left: 9%;
+}
+.awa-19 {
+  top: 6%;
+  left: 27%;
+}
+.awa-20 {
+  top: 15%;
+  left: 30%;
+}
+.awa-21 {
+  top: 5%;
+  left: 35%;
+}
+.awa-22 {
+  top: 17%;
+  right: 16%;
+}
+.awa-23 {
+  top: 10%;
+  left: 68%;
+}
+.awa-24 {
+  top: 2%;
+  left: 61%;
+}
+.awa-25 {
+  top: 8%;
+  right: 11%;
+}
+.awa-26 {
+  top: 28%;
+  right: 11%;
 }
