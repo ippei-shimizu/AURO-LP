@@ -697,7 +697,7 @@ img {
   position: absolute;
   z-index: 1;
   left: 24%;
-    top: 17%;
+  top: 17%;
 }
 .awa-02 {
   position: absolute;
@@ -842,4 +842,35 @@ img {
 .awa-26 {
   top: 28%;
   right: 11%;
+}
+
+.senzai-06 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.section-14-text-01 {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-left: 8%;
+}
+.section-14-text-02 {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: 35px 0 104px 10%;
+}
+.section-14-text-03 {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-left: 8%;
+}
+.section-14-text-04 {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin: 11% 0 0 15%;
 }
