@@ -27,35 +27,10 @@ $(document).ready(function () {
 
   function initFullPage() {
     if (window.innerWidth > 790 && !$.fn.fullpage.isInitialised) {
-      $("#fullpage").fullpage({
-        anchors: [
-          "page1",
-          "page2",
-          "page3",
-          "page4",
-          "page5",
-          "page6",
-          "page7",
-          "page8",
-          "page9",
-          "page10",
-          "page11",
-          "page12",
-          "page13",
-          "page14",
-          "page15",
-          "page16",
-          "page17",
-          "page18",
-          "page19",
-          "page20",
-        ],
-      });
     } else if (window.innerWidth <= 790 && $.fn.fullpage.isInitialised) {
       $.fn.fullpage.destroy("all");
     }
   }
-
   initFullPage();
 
   window.addEventListener("resize", initFullPage);
@@ -130,8 +105,8 @@ window.addEventListener("load", () => {
     let moveDistance = window.innerWidth * 1.2;
 
     if (window.innerWidth <= 790) {
-      moveDistance = window.innerWidth * 1.6; // スマートフォンやタブレット向けの移動距離
-      curve = Math.sin(progress * Math.PI); // カーブの挙動を少し調整
+      moveDistance = window.innerWidth * 1.6;
+      curve = Math.sin(progress * Math.PI);
     }
 
     if (direction === "right-down") {
@@ -182,210 +157,1041 @@ window.addEventListener("load", () => {
   // gsap
   gsap.registerPlugin(ScrollTrigger);
 
-  // wood-left animation
-  gsap.from(".wood-left", {
-    scrollTrigger: {
-      trigger: ".wood-left",
-      start: "top bottom",
-      toggleActions: "play none none reverse",
-      once: true,
-    },
-    x: "-100%",
-    duration: 2,
-    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
-  });
-  gsap.from(".wood-03", {
-    scrollTrigger: {
-      trigger: ".wood-03",
-      start: "top bottom",
-      toggleActions: "play none none reverse",
-      once: true,
-    },
-    x: "-100%",
-    duration: 2,
-    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
-  });
+  let scrollTriggers = [];
 
-  // wood-right animation
-  gsap.from(".wood-right", {
-    scrollTrigger: {
-      trigger: ".wood-right",
-      start: "top bottom",
-      toggleActions: "play none none reverse",
-      once: true,
-    },
-    x: "100%",
-    duration: 2,
-    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
-  });
-  document.querySelectorAll(".fade-in-01").forEach((elem, index) => {
-    gsap.from(elem, {
-      scrollTrigger: {
-        trigger: elem,
-        start: "top bottom",
-        once: true,
-      },
-      filter: "blur(10px)",
-      scale: 1.02,
-      opacity: 0,
-      duration: 1,
-      ease: "power1.out",
-    });
-  });
+  function setupScrollTriggers() {
+    if (window.innerWidth <= 790) {
+      scrollTriggers.forEach((st) => st.kill());
+      scrollTriggers = [];
 
-  gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
-  gsap.to(".sub-leaf", {
-    left: "initial",
-    right: "-36px",
-    scrollTrigger: {
-      trigger: ".section2-sub-title",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1.2,
-    delay: 1,
-    ease: "power1.out",
-  });
-  gsap.from(".auro-title-box", {
-    x: "-100%",
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".auro-title-box",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1,
-    delay: 1,
-    ease: "power1.out",
-  });
-  gsap.from(".auro-title-sub", {
-    x: "100%",
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".auro-title-sub",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1,
-    delay: 1,
-    ease: "power1.out",
-  });
+      let st1 = gsap.from(".wood-left", {
+        scrollTrigger: {
+          trigger: ".wood-left",
+          start: "top bottom",
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        x: "-100%",
+        duration: 2,
+        ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+      });
+      scrollTriggers.push(st1.scrollTrigger);
 
-  gsap.from(".auro-title-wrap", {
-    x: "-100%",
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".auro-title-wrap",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1,
-    delay: 1,
-    ease: "power1.out",
-  });
-  gsap.from(".auro-title-sub-02", {
-    x: "100%",
-    opacity: 0,
-    scrollTrigger: {
-      trigger: ".auro-title-sub-02",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1,
-    delay: 1,
-    ease: "power1.out",
-  });
+      let st2 = gsap.from(".wood-03", {
+        scrollTrigger: {
+          trigger: ".wood-03",
+          start: "top bottom",
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        x: "-100%",
+        duration: 2,
+        ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+      });
+      scrollTriggers.push(st2.scrollTrigger);
 
-  gsap.set(".fade-in-02", {
-    opacity: 0,
-    y: "30px",
-  });
+      let st3 = gsap.from(".wood-right", {
+        scrollTrigger: {
+          trigger: ".wood-right",
+          start: "top bottom",
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        x: "100%",
+        duration: 2,
+        ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+      });
+      scrollTriggers.push(st3.scrollTrigger);
 
-  document.querySelectorAll(".fade-in-02").forEach((elem, index) => {
-    // 最初のアニメーション：transform:translateY(30px) → transform:translateY(1.6e-6px)
-    gsap.to(elem, {
-      opacity: 1,
-      y: 1.6e-6,
-      delay: 0.02 * index,
-      duration: 0.5, // 1秒の半分をこのアニメーションに割り当て
-      ease: "cubic-bezier(.03,.69,.98,.67)",
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 100%",
-        once: true,
-      },
-      onComplete: function () {
-        // 2つ目のアニメーション：transform:translateY(1.6e-6px) → transform:translateY(0px)
-        gsap.to(elem, {
-          y: 0,
-          duration: 0.5, // 残りの半分の時間
-          ease: "cubic-bezier(.03,.69,.98,.67)",
+      document.querySelectorAll(".fade-in-01").forEach((elem, index) => {
+        let animation = gsap.from(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: "top bottom",
+            once: true,
+          },
+          filter: "blur(10px)",
+          scale: 1.02,
+          opacity: 0,
+          duration: 1,
+          ease: "power1.out",
         });
-      },
-    });
-  });
+        scrollTriggers.push(animation.scrollTrigger);
+      });
 
-  gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
-  gsap.to(".sub-leaf-16", {
-    left: "initial",
-    right: "-30px",
-    scrollTrigger: {
-      trigger: ".sub-leaf-16",
-      start: "top 80%",
-      once: true,
-    },
-    duration: 1.2,
-    delay: 1,
-    ease: "power1.out",
-  });
+      let st5 = gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+      scrollTriggers.push(st5.scrollTrigger);
 
-  document.querySelectorAll(".fade-in-03").forEach((elem) => {
-    // 初期状態を設定
-    gsap.set(elem, { opacity: 0, x: "-5%" });
+      let st6 = gsap.to(".sub-leaf", {
+        left: "initial",
+        right: "-36px",
+        scrollTrigger: {
+          trigger: ".section2-sub-title",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1.2,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st6.scrollTrigger);
 
-    gsap.to(elem, {
-      opacity: 1,
-      x: 0,
-      duration: 1.6,
-      ease: "cubic-bezier(.03,.69,.98,.67)",
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 80%",
-        once: true,
-      },
-    });
-  });
+      let st7 = gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+      scrollTriggers.push(st7.scrollTrigger);
 
-  document.querySelectorAll(".ato").forEach((elem, index) => {
-    // 初期状態を設定
-    gsap.set(elem, { opacity: 0 }); // 透明に設定
+      let st8 = gsap.to(".sub-leaf", {
+        left: "initial",
+        right: "-36px",
+        scrollTrigger: {
+          trigger: ".section2-sub-title",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1.2,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st8.scrollTrigger);
 
-    gsap.to(elem, {
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 100%",
-        once: true,
-      },
-      opacity: 1, 
-      ease: "none",
-      delay: 0.1 * index, 
-      duration: 0.02,
-    });
-  });
+      let st10 = gsap.from(".auro-title-box", {
+        x: "-100%",
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".auro-title-box",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st10.scrollTrigger);
 
-  document.querySelectorAll(".awa-img").forEach((elem) => {
-    gsap.set(elem, { opacity: 0 });
+      let st11 = gsap.from(".auro-title-sub", {
+        x: "100%",
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".auro-title-sub",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st11.scrollTrigger);
 
-    gsap.to(elem, {
-      opacity: 1,
-      scrollTrigger: {
-        trigger: elem,
-        start: "top 80%", 
-        once: true, 
-      },
-      ease: "power1.out",
-    });
-  });
+      let st12 = gsap.from(".auro-title-wrap", {
+        x: "-100%",
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".auro-title-wrap",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st12.scrollTrigger);
+
+      let st13 = gsap.from(".auro-title-sub-02", {
+        x: "100%",
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".auro-title-sub-02",
+          start: "top bottom",
+          once: true,
+        },
+        duration: 1,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st13.scrollTrigger);
+
+      let st14 = gsap.set(".fade-in-02", {
+        opacity: 0,
+        y: "30px",
+      });
+      scrollTriggers.push(st14.scrollTrigger);
+
+      document.querySelectorAll(".fade-in-02").forEach((elem, index) => {
+        let animation1 = gsap.to(elem, {
+          opacity: 1,
+          y: 1.6e-6,
+          delay: 0.02 * index,
+          duration: 0.5,
+          ease: "cubic-bezier(.03,.69,.98,.67)",
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 100%",
+            once: true,
+          },
+          onComplete: function () {
+            gsap.to(elem, {
+              y: 0,
+              duration: 0.5,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+          },
+        });
+        scrollTriggers.push(animation1.scrollTrigger);
+      });
+
+      let st16 = gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
+      scrollTriggers.push(st16.scrollTrigger);
+
+      let st17 = gsap.to(".sub-leaf-16", {
+        left: "initial",
+        right: "-30px",
+        scrollTrigger: {
+          trigger: ".sub-leaf-16",
+          start: "top 80%",
+          once: true,
+        },
+        duration: 1.2,
+        delay: 1,
+        ease: "power1.out",
+      });
+      scrollTriggers.push(st17.scrollTrigger);
+
+      document.querySelectorAll(".fade-in-03").forEach((elem) => {
+        gsap.set(elem, { opacity: 0, x: "-5%" });
+
+        let animation2 = gsap.to(elem, {
+          opacity: 1,
+          x: 0,
+          duration: 1.6,
+          ease: "cubic-bezier(.03,.69,.98,.67)",
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 80%",
+            once: true,
+          },
+        });
+        scrollTriggers.push(animation2.scrollTrigger);
+      });
+
+      document.querySelectorAll(".ato").forEach((elem, index) => {
+        gsap.set(elem, { opacity: 0 });
+
+        let animation = gsap.to(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 100%",
+            once: true,
+          },
+          opacity: 1,
+          ease: "none",
+          delay: 0.2 * index,
+          duration: 0.02,
+        });
+
+        scrollTriggers.push(animation.scrollTrigger);
+      });
+
+      document.querySelectorAll(".ato").forEach((elem, index) => {
+        gsap.set(elem, { opacity: 0 });
+
+        let animation = gsap.to(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 100%",
+            once: true,
+          },
+          opacity: 1,
+          ease: "none",
+          delay: 0.2 * index,
+          duration: 0.02,
+        });
+
+        scrollTriggers.push(animation.scrollTrigger);
+      });
+
+      document.querySelectorAll(".awa-img").forEach((elem) => {
+        gsap.set(elem, { opacity: 0 });
+
+        let animation = gsap.to(elem, {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: elem,
+            start: "top 80%",
+            once: true,
+          },
+          ease: "power1.out",
+        });
+
+        scrollTriggers.push(animation.scrollTrigger);
+      });
+
+      ScrollTrigger.refresh();
+    } else {
+      scrollTriggers.forEach((st) => st.kill());
+      scrollTriggers = [];
+
+      $("#fullpage").fullpage({
+        anchors: [
+          "page1",
+          "page2",
+          "page3",
+          "page4",
+          "page5",
+          "page6",
+          "page7",
+          "page8",
+          "page9",
+          "page10",
+          "page11",
+          "page12",
+          "page13",
+          "page14",
+          "page15",
+          "page16",
+          "page17",
+          "page18",
+          "page19",
+          "page20",
+        ],
+        afterLoad: function (anchorLink, index) {
+          gsap.set(".wood-left", { x: "-100%" });
+          gsap.set(".wood-right", { x: "100%" });
+          gsap.set(".fade-in-04", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".auro-title-box", { opacity: "0", x: "-100%" });
+          gsap.set(".auro-title-sub", { opacity: "0", x: "100%" });
+          gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+          gsap.set(".penki-img", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".penki-02", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-05", { opacity: 0, y: "30px" });
+          gsap.set(".penki-03", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-06", { opacity: 0, y: "30px" });
+          gsap.set(".penki-05", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-07", { opacity: 0, y: "30px" });
+          gsap.set(".penki-06", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".wax-01", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-08", { opacity: 0, y: "30px" });
+          gsap.set(".wax-02", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-09", { opacity: 0, y: "30px" });
+          gsap.set(".wax-03", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-10", { opacity: 0, y: "30px" });
+          gsap.set(".senzai-01", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".senzai-02", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-11", { opacity: 0, y: "30px" });
+          gsap.set(".senzai-03", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-12", { opacity: 0, y: "30px" });
+          gsap.set(".awa-01", { opacity: 0 });
+          gsap.set(".awa-02", { opacity: 0 });
+          gsap.set(".senzai-04", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-13", { opacity: 0, y: "30px" });
+          gsap.set(
+            [
+              ".awa-03",
+              ".awa-04",
+              ".awa-05",
+              ".awa-06",
+              ".awa-07",
+              ".awa-08",
+              ".awa-09",
+              ".awa-10",
+              ".awa-11",
+              ".awa-12",
+              ".awa-13",
+            ],
+            { opacity: 0 }
+          );
+          gsap.set(".senzai-05", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-14", { opacity: 0, y: "30px" });
+          gsap.set(
+            [
+              ".awa-14",
+              ".awa-15",
+              ".awa-16",
+              ".awa-17",
+              ".awa-18",
+              ".awa-19",
+              ".awa-20",
+              ".awa-21",
+              ".awa-22",
+              ".awa-23",
+              ".awa-24",
+              ".awa-25",
+              ".awa-26",
+            ],
+            { opacity: 0 }
+          );
+          gsap.set(
+            [".ato-01", ".ato-02", ".ato-03", ".ato-04", ".ato-05", ".ato-06"],
+            { opacity: 0 }
+          );
+          gsap.set(
+            [
+              ".ato-07",
+              ".ato-08",
+              ".ato-09",
+              ".ato-10",
+              ".ato-11",
+              ".ato-12",
+              ".ato-13",
+              ".ato-14",
+              ".ato-15",
+              ".ato-16",
+            ],
+            { opacity: 0 }
+          );
+          gsap.set(".senzai-06", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-15", { opacity: 0, y: "30px" });
+          gsap.set(".senzai-07", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".wood-03", { x: "-100%" });
+          gsap.set(".kuma", { opacity: 0, x: "-10%" });
+          gsap.set(".fade-in-20", { opacity: "0", filter: "blur(10px)" });
+          gsap.set(".auro-title-wrap", { opacity: "0", x: "-100%" });
+          gsap.set(".auro-title-sub-02", { opacity: "0", x: "100%" });
+          gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
+          gsap.set(".fade-in-16", { opacity: 0, y: "30px" });
+
+          if (anchorLink === "page2") {
+            gsap.to(".wood-left", {
+              x: "0%",
+              duration: 2,
+              ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+            });
+            gsap.to(".wood-right", {
+              x: "0%",
+              duration: 2,
+              ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+            });
+            gsap.to(".fade-in-04", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-box", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-sub", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".sub-leaf", {
+              left: "initial",
+              right: "-58px",
+              duration: 1.2,
+              delay: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page3") {
+            gsap.to(".penki-img", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page4") {
+            gsap.to(".penki-02", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-05").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page5") {
+            gsap.to(".penki-03", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-06").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+            [
+              ".ato-01",
+              ".ato-02",
+              ".ato-03",
+              ".ato-04",
+              ".ato-05",
+              ".ato-06",
+            ].forEach((selector, i) => {
+              gsap.to(selector, {
+                opacity: 1,
+                ease: "none",
+                delay: 0.2 * (index + i),
+                duration: 0.02,
+              });
+            });
+          }
+          if (anchorLink === "page6") {
+            gsap.to(".penki-05", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-07").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+            [
+              ".ato-07",
+              ".ato-08",
+              ".ato-09",
+              ".ato-10",
+              ".ato-11",
+              ".ato-12",
+              ".ato-13",
+              ".ato-14",
+              ".ato-15",
+              ".ato-16",
+            ].forEach((selector, i) => {
+              gsap.to(selector, {
+                opacity: 1,
+                ease: "none",
+                delay: 0.2 * (index + i),
+                duration: 0.02,
+              });
+            });
+          }
+          if (anchorLink === "page7") {
+            gsap.to(".penki-06", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page8") {
+            gsap.to(".wax-01", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-08").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page9") {
+            gsap.to(".wax-02", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-09").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page10") {
+            gsap.to(".wax-03", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-10").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page11") {
+            gsap.to(".senzai-01", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page12") {
+            gsap.to(".senzai-02", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-11").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page13") {
+            gsap.to(".senzai-03", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-12").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+            gsap.to(".awa-01", {
+              opacity: 1,
+              scrollTrigger: {
+                trigger: elem,
+                start: "top 80%",
+                once: true,
+              },
+              ease: "power1.out",
+            });
+            gsap.to(".awa-02", {
+              opacity: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page14") {
+            gsap.to(".senzai-04", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-13").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+            gsap.to(
+              [
+                ".awa-03",
+                ".awa-04",
+                ".awa-05",
+                ".awa-06",
+                ".awa-07",
+                ".awa-08",
+                ".awa-09",
+                ".awa-10",
+                ".awa-11",
+                ".awa-12",
+                ".awa-13",
+              ],
+              {
+                opacity: 1,
+                ease: "power1.out",
+              }
+            );
+          }
+          if (anchorLink === "page15") {
+            gsap.to(".senzai-05", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-14").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+            gsap.to(
+              [
+                ".awa-14",
+                ".awa-15",
+                ".awa-16",
+                ".awa-17",
+                ".awa-18",
+                ".awa-19",
+                ".awa-20",
+                ".awa-21",
+                ".awa-22",
+                ".awa-23",
+                ".awa-24",
+                ".awa-25",
+                ".awa-26",
+              ],
+              {
+                opacity: 1,
+                ease: "power1.out",
+              }
+            );
+          }
+          if (anchorLink === "page16") {
+            gsap.to(".senzai-06", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            document.querySelectorAll(".fade-in-15").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+          if (anchorLink === "page17") {
+            gsap.to(".senzai-07", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+          }
+          if (anchorLink === "page18") {
+            gsap.to(".wood-03", {
+              x: "0%",
+              duration: 2,
+              ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+            });
+            gsap.to(".kuma", {
+              opacity: 1,
+              x: 0,
+              duration: 1.6,
+              ease: "cubic-bezier(.03,.69,.98,.67)",
+            });
+            gsap.to(".fade-in-20", {
+              filter: "blur(0px)",
+              scale: 1.02,
+              opacity: 1,
+              duration: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-wrap", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-sub-02", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".sub-leaf-16", {
+              left: "initial",
+              right: "-58px",
+              duration: 1.2,
+              delay: 1,
+              ease: "power1.out",
+            });
+            document.querySelectorAll(".fade-in-16").forEach((elem, index) => {
+              gsap.to(elem, {
+                opacity: 1,
+                y: 1.6e-6,
+                delay: 1 + 0.3 * index,
+                duration: 0.5,
+                ease: "cubic-bezier(.03,.69,.98,.67)",
+                onComplete: function () {
+                  gsap.to(elem, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "cubic-bezier(.03,.69,.98,.67)",
+                  });
+                },
+              });
+            });
+          }
+        },
+      });
+    }
+  }
+  setupScrollTriggers();
+
+  // gsap
+  // gsap.registerPlugin(ScrollTrigger);
+  // gsap.from(".wood-03", {
+  //   scrollTrigger: {
+  //     trigger: ".wood-03",
+  //     start: "top bottom",
+  //     toggleActions: "play none none reverse",
+  //     once: true,
+  //   },
+  //   x: "-100%",
+  //   duration: 2,
+  //   ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+  // });
+
+  // document.querySelectorAll(".fade-in-01").forEach((elem, index) => {
+  //   gsap.from(elem, {
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top bottom",
+  //       once: true,
+  //     },
+  //     filter: "blur(10px)",
+  //     scale: 1.02,
+  //     opacity: 0,
+  //     duration: 1,
+  //     ease: "power1.out",
+  //   });
+  // });
+
+  // gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+  // gsap.to(".sub-leaf", {
+  //   left: "initial",
+  //   right: "-36px",
+  //   scrollTrigger: {
+  //     trigger: ".section2-sub-title",
+  //     start: "top bottom",
+  //     once: true,
+  //   },
+  //   duration: 1.2,
+  //   delay: 1,
+  //   ease: "power1.out",
+  // });
+
+  // gsap.from(".auro-title-wrap", {
+  //   x: "-100%",
+  //   opacity: 0,
+  //   scrollTrigger: {
+  //     trigger: ".auro-title-wrap",
+  //     start: "top bottom",
+  //     once: true,
+  //   },
+  //   duration: 1,
+  //   delay: 1,
+  //   ease: "power1.out",
+  // });
+  // gsap.from(".auro-title-sub-02", {
+  //   x: "100%",
+  //   opacity: 0,
+  //   scrollTrigger: {
+  //     trigger: ".auro-title-sub-02",
+  //     start: "top bottom",
+  //     once: true,
+  //   },
+  //   duration: 1,
+  //   delay: 1,
+  //   ease: "power1.out",
+  // });
+
+  // gsap.set(".fade-in-02", {
+  //   opacity: 0,
+  //   y: "30px",
+  // });
+
+  // document.querySelectorAll(".fade-in-02").forEach((elem, index) => {
+  //   gsap.to(elem, {
+  //     opacity: 1,
+  //     y: 1.6e-6,
+  //     delay: 0.02 * index,
+  //     duration: 0.5,
+  //     ease: "cubic-bezier(.03,.69,.98,.67)",
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top 100%",
+  //       once: true,
+  //     },
+  //     onComplete: function () {
+  //       gsap.to(elem, {
+  //         y: 0,
+  //         duration: 0.5,
+  //         ease: "cubic-bezier(.03,.69,.98,.67)",
+  //       });
+  //     },
+  //   });
+  // });
+
+  // gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
+  // gsap.to(".sub-leaf-16", {
+  //   left: "initial",
+  //   right: "-30px",
+  //   scrollTrigger: {
+  //     trigger: ".sub-leaf-16",
+  //     start: "top 80%",
+  //     once: true,
+  //   },
+  //   duration: 1.2,
+  //   delay: 1,
+  //   ease: "power1.out",
+  // });
+
+  // document.querySelectorAll(".fade-in-03").forEach((elem) => {
+  //   gsap.set(elem, { opacity: 0, x: "-5%" });
+
+  //   gsap.to(elem, {
+  //     opacity: 1,
+  //     x: 0,
+  //     duration: 1.6,
+  //     ease: "cubic-bezier(.03,.69,.98,.67)",
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top 80%",
+  //       once: true,
+  //     },
+  //   });
+  // });
+
+  // document.querySelectorAll(".ato").forEach((elem, index) => {
+  //   gsap.set(elem, { opacity: 0 });
+
+  //   gsap.to(elem, {
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top 100%",
+  //       once: true,
+  //     },
+  //     opacity: 1,
+  //     ease: "none",
+  //     delay: 0.2 * index,
+  //     duration: 0.02,
+  //   });
+  // });
+
+  // document.querySelectorAll(".awa-img").forEach((elem) => {
+  //   gsap.set(elem, { opacity: 0 });
+
+  //   gsap.to(elem, {
+  //     opacity: 1,
+  //     scrollTrigger: {
+  //       trigger: elem,
+  //       start: "top 80%",
+  //       once: true,
+  //     },
+  //     ease: "power1.out",
+  //   });
+  // });
 });
 
 function updateSideVisibility() {
