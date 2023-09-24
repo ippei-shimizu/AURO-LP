@@ -194,6 +194,17 @@ window.addEventListener("load", () => {
     duration: 2,
     ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
   });
+  gsap.from(".wood-03", {
+    scrollTrigger: {
+      trigger: ".wood-03",
+      start: "top bottom",
+      toggleActions: "play none none reverse",
+      once: true,
+    },
+    x: "-100%",
+    duration: 2,
+    ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
+  });
 
   // wood-right animation
   gsap.from(".wood-right", {
@@ -217,7 +228,7 @@ window.addEventListener("load", () => {
     scale: 1.02,
     opacity: 0,
     duration: 1,
-    delay: 0.6,
+    delay: 1,
     ease: "power1.out",
   });
 
@@ -294,6 +305,69 @@ window.addEventListener("load", () => {
     duration: 1,
     delay: 1,
     ease: "power1.out",
+  });
+
+  gsap.set(".fade-in-02", {
+    opacity: 0,
+    y: "30px",
+  });
+
+  document.querySelectorAll(".fade-in-02").forEach((elem, index) => {
+    // 最初のアニメーション：transform:translateY(30px) → transform:translateY(1.6e-6px)
+    gsap.to(elem, {
+      opacity: 1,
+      y: 1.6e-6,
+      delay: 0.02 * index,
+      duration: 0.5, // 1秒の半分をこのアニメーションに割り当て
+      ease: "cubic-bezier(.03,.69,.98,.67)",
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 100%",
+        once: true,
+      },
+      onComplete: function () {
+        // 2つ目のアニメーション：transform:translateY(1.6e-6px) → transform:translateY(0px)
+        gsap.to(elem, {
+          y: 0,
+          duration: 0.5, // 残りの半分の時間
+          ease: "cubic-bezier(.03,.69,.98,.67)",
+        });
+      },
+    });
+  });
+
+  document.querySelectorAll(".fade-in-03").forEach((elem) => {
+    // 初期状態を設定
+    gsap.set(elem, { opacity: 0, x: "-5%" });
+
+    gsap.to(elem, {
+      opacity: 1,
+      x: 0,
+      duration: 1.6,
+      ease: "cubic-bezier(.03,.69,.98,.67)",
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 80%",
+        once: true,
+      },
+    });
+  });
+
+  document.querySelectorAll(".ato").forEach((elem, index) => {
+    // 初期状態を設定
+    gsap.set(elem, { opacity: 0 }); // 透明に設定
+
+    gsap.to(elem, {
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 100%",
+        once: true,
+      },
+      opacity: 1, // 透明度を1に変更
+      ease: "none",
+      delay: 0.1 * index, // 0.08秒ずつ遅延
+      duration: 0.02,
+    });
   });
 });
 

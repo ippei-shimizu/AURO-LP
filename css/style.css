@@ -2,6 +2,10 @@
   font-family: "001Shirokuma-Regular";
   src: url("../fonts/001Shirokuma-Regular.otf") format("opentype");
 }
+@font-face {
+  font-family: "A-OTF-Jun34Pro-Medium";
+  src: url("../fonts/A-OTF-Jun34Pro-Medium.otf") format("opentype");
+}
 :root {
   --AURO_: #553219;
 }
@@ -21,7 +25,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Annie Use Your Telescope", cursive;
+  font-family: "A-OTF-Jun34Pro-Medium", "Annie Use Your Telescope", cursive, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 img {
@@ -343,7 +347,7 @@ img {
 .text-2 {
   color: var(--AURO_, #553219);
   text-align: center;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 20px;
   font-style: normal;
   font-weight: 505;
@@ -1059,7 +1063,7 @@ img {
 .footer-info h2 {
   color: var(--AURO_, #553219);
   text-align: justify;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 20px;
   font-style: normal;
   font-weight: 505;
@@ -1069,7 +1073,7 @@ img {
 .footer-info .info-text {
   color: var(--AURO_, #553219);
   text-align: justify;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 20px;
   font-style: normal;
   font-weight: 505;
@@ -1079,7 +1083,7 @@ img {
 .footer-info .info-tel {
   color: var(--AURO_, #553219);
   text-align: justify;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
@@ -1110,7 +1114,7 @@ img {
 .footer-nav a {
   color: var(--AURO_, #553219);
   text-align: right;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 20px;
   font-style: normal;
   font-weight: 505;
@@ -1145,7 +1149,7 @@ img {
 .footer-btm p {
   color: var(--AURO_, #553219);
   text-align: center;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -1244,7 +1248,19 @@ img {
   display: none;
 }
 
+.sp-email-tel {
+  display: none;
+}
+
+.ato {
+  opacity: 0;
+  transition: opacity 0s;
+}
+
 @media screen and (max-width: 790px) {
+  .sp-email-tel {
+    display: block;
+  }
   #fullpage {
     overflow: hidden;
   }
@@ -2210,7 +2226,7 @@ img {
   display: block;
   color: var(--AURO_, #553219);
   text-align: justify;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 16px;
   font-style: normal;
   font-weight: 505;
@@ -2233,7 +2249,7 @@ img {
 .nav-list a {
   color: var(--AURO_, #553219);
   text-align: center;
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 24px;
   font-style: normal;
   font-weight: 505;
@@ -2280,7 +2296,7 @@ img {
 }
 .nav-info .tel-num {
   color: var(--AURO_, #553219);
-  font-family: "";
+  font-family: "A-OTF-Jun34Pro-Medium";
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
