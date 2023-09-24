@@ -89,7 +89,7 @@ img {
   top: 24px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index:11;
   mix-blend-mode: multiply;
 }
 
@@ -582,9 +582,14 @@ img {
 }
 .section-08-text-04 {
   position: absolute;
-  top: 61%;
+  top: 67%;
   right: 12%;
   z-index: 1;
+}
+#section13 {
+  .section-08-text-04 {
+    top: 62%;
+  }
 }
 .section-08-text-05 {
   position: absolute;
