@@ -207,7 +207,6 @@ window.addEventListener("load", () => {
     duration: 2,
     ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
   });
-
   gsap.from(".fade-in-01", {
     scrollTrigger: {
       trigger: ".fade-in-01",
@@ -219,6 +218,81 @@ window.addEventListener("load", () => {
     opacity: 0,
     duration: 1,
     delay: 0.6,
+    ease: "power1.out",
+  });
+
+  gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+  gsap.to(".sub-leaf", {
+    left: "initial",
+    right: "-36px",
+    scrollTrigger: {
+      trigger: ".section2-sub-title",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1.2,
+    delay: 1,
+    ease: "power1.out",
+  });
+  gsap.from(".auro-title-box", {
+    x: "-100%",
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".auro-title-box",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1,
+    delay: 1,
+    ease: "power1.out",
+  });
+  gsap.from(".auro-title-sub", {
+    x: "100%",
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".auro-title-sub",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1,
+    delay: 1,
+    ease: "power1.out",
+  });
+  gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
+  gsap.to(".sub-leaf-16", {
+    left: "initial",
+    right: "-30px",
+    scrollTrigger: {
+      trigger: ".section2-sub-title",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1.2,
+    delay: 1,
+    ease: "power1.out",
+  });
+  gsap.from(".auro-title-wrap", {
+    x: "-100%",
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".auro-title-wrap",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1,
+    delay: 1,
+    ease: "power1.out",
+  });
+  gsap.from(".auro-title-sub-02", {
+    x: "100%",
+    opacity: 0,
+    scrollTrigger: {
+      trigger: ".auro-title-sub-02",
+      start: "top bottom",
+      once: true,
+    },
+    duration: 1,
+    delay: 1,
     ease: "power1.out",
   });
 });

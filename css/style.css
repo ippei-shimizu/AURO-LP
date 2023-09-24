@@ -287,10 +287,14 @@ img {
 
 .section2-sub-title {
   width: fit-content;
-  margin: 2px auto 0;
+  margin: 6px auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative !important;
+}
+.section2-sub-title .auro-title-box {
+  overflow: hidden;
 }
 .section2-sub-title h3 {
   color: var(--AURO_, #553219);
@@ -305,6 +309,7 @@ img {
 .section2-sub-title .sub-leaf {
   display: block;
   width: 58.365px;
+  position: absolute;
 }
 
 .penki-img {
@@ -978,6 +983,9 @@ img {
   line-height: 80px;
   letter-spacing: -12.8px;
 }
+.section16-title .auro-title-wrap {
+  overflow: hidden;
+}
 .section16-title h3 {
   color: var(--AURO_, #553219);
   text-align: center;
@@ -991,6 +999,7 @@ img {
 
 .sub-leaf-16 {
   width: 58px;
+  position: absolute;
 }
 
 #section16 .section2-sub-title {
