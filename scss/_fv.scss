@@ -9,7 +9,6 @@
   src: url("../fonts/A-OTF-Jun34Pro-Medium.otf") format("opentype");
 }
 
-
 :root {
   --AURO_: #553219;
 }
@@ -1190,6 +1189,42 @@ img {
 .ato {
   opacity: 0;
   transition: opacity 0s;
+}
+$starCount: 13; // この数は .star 要素の総数に合わせて変更してください
+
+@for $i from 1 through $starCount {
+  .star:nth-child(#{$i}) {
+    animation: flashing 2s infinite;
+    animation-delay: ($i % 2) * 1s; // 交互に 0s と 1s で遅延を設定
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.awa-img {
+  animation: awaAwa 3s ease-in-out infinite alternate;
+  transition: 1.5s ease-in-out;
+}
+
+@keyframes awaAwa {
+  0% {
+    transform: translate(0, 0) rotate(-7deg);
+  }
+  50% {
+    transform: translate(0, -7px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(7deg);
+  }
 }
 
 @include media(bp790) {

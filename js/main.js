@@ -218,18 +218,19 @@ window.addEventListener("load", () => {
     duration: 2,
     ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
   });
-  gsap.from(".fade-in-01", {
-    scrollTrigger: {
-      trigger: ".fade-in-01",
-      start: "top bottom",
-      once: true,
-    },
-    filter: "blur(10px)",
-    scale: 1.02,
-    opacity: 0,
-    duration: 1,
-    delay: 1,
-    ease: "power1.out",
+  document.querySelectorAll(".fade-in-01").forEach((elem, index) => {
+    gsap.from(elem, {
+      scrollTrigger: {
+        trigger: elem,
+        start: "top bottom",
+        once: true,
+      },
+      filter: "blur(10px)",
+      scale: 1.02,
+      opacity: 0,
+      duration: 1,
+      ease: "power1.out",
+    });
   });
 
   gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
@@ -269,19 +270,7 @@ window.addEventListener("load", () => {
     delay: 1,
     ease: "power1.out",
   });
-  gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
-  gsap.to(".sub-leaf-16", {
-    left: "initial",
-    right: "-30px",
-    scrollTrigger: {
-      trigger: ".section2-sub-title",
-      start: "top bottom",
-      once: true,
-    },
-    duration: 1.2,
-    delay: 1,
-    ease: "power1.out",
-  });
+
   gsap.from(".auro-title-wrap", {
     x: "-100%",
     opacity: 0,
@@ -336,6 +325,20 @@ window.addEventListener("load", () => {
     });
   });
 
+  gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
+  gsap.to(".sub-leaf-16", {
+    left: "initial",
+    right: "-30px",
+    scrollTrigger: {
+      trigger: ".sub-leaf-16",
+      start: "top 80%",
+      once: true,
+    },
+    duration: 1.2,
+    delay: 1,
+    ease: "power1.out",
+  });
+
   document.querySelectorAll(".fade-in-03").forEach((elem) => {
     // 初期状態を設定
     gsap.set(elem, { opacity: 0, x: "-5%" });
@@ -363,10 +366,24 @@ window.addEventListener("load", () => {
         start: "top 100%",
         once: true,
       },
-      opacity: 1, // 透明度を1に変更
+      opacity: 1, 
       ease: "none",
-      delay: 0.1 * index, // 0.08秒ずつ遅延
+      delay: 0.1 * index, 
       duration: 0.02,
+    });
+  });
+
+  document.querySelectorAll(".awa-img").forEach((elem) => {
+    gsap.set(elem, { opacity: 0 });
+
+    gsap.to(elem, {
+      opacity: 1,
+      scrollTrigger: {
+        trigger: elem,
+        start: "top 80%", 
+        once: true, 
+      },
+      ease: "power1.out",
     });
   });
 });
