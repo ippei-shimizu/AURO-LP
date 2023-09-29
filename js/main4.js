@@ -167,44 +167,44 @@ window.addEventListener("load", () => {
     let shouldResetTime = false;
 
     const birdElem = document.getElementById("bard");
+  }
 
-    function animate(timestamp) {
-      if (startTime === undefined || shouldResetTime) {
-        startTime = timestamp;
-        shouldResetTime = false;
-      }
-
-      const elapsed = timestamp - startTime;
-
-      if (elapsed >= 14000 && !isWaiting) {
-        direction = direction === "right-down" ? "left-up" : "right-down";
-        isWaiting = true;
-        setTimeout(() => {
-          isWaiting = false;
-          shouldResetTime = true;
-        }, 3000);
-        return requestAnimationFrame(animate);
-      }
-
-      if (isWaiting) {
-        return requestAnimationFrame(animate);
-      }
-
-      let progress = elapsed / 14000;
-      let curve = Math.sin(progress * Math.PI) * 2;
-
-      if (direction === "right-down") {
-        birdElem.style.transform = `translate(${2324.12 * progress}px, ${
-          484.179 * progress * curve
-        }px) rotate(${-4.07523 * progress}deg) scaleX(1)`;
-      } else {
-        birdElem.style.transform = `translate(${2324.12 * (1 - progress)}px, ${
-          434.179 * (1 - progress) * curve
-        }px) rotate(${-4.07523 * (1 - progress)}deg) scaleX(-1)`;
-      }
-
-      requestAnimationFrame(animate);
+  function animate(timestamp) {
+    if (startTime === undefined || shouldResetTime) {
+      startTime = timestamp;
+      shouldResetTime = false;
     }
+
+    const elapsed = timestamp - startTime;
+
+    if (elapsed >= 14000 && !isWaiting) {
+      direction = direction === "right-down" ? "left-up" : "right-down";
+      isWaiting = true;
+      setTimeout(() => {
+        isWaiting = false;
+        shouldResetTime = true;
+      }, 3000);
+      return requestAnimationFrame(animate);
+    }
+
+    if (isWaiting) {
+      return requestAnimationFrame(animate);
+    }
+
+    let progress = elapsed / 10000;
+    let curve = Math.sin(progress * Math.PI) * 2;
+
+    if (direction === "right-down") {
+      birdElem.style.transform = `translate(${2324.12 * progress}px, ${
+        484.179 * progress * curve
+      }px) rotate(${-4.07523 * progress}deg) scaleX(1)`;
+    } else {
+      birdElem.style.transform = `translate(${2324.12 * (1 - progress)}px, ${
+        434.179 * (1 - progress) * curve
+      }px) rotate(${-4.07523 * (1 - progress)}deg) scaleX(-1)`;
+    }
+
+    requestAnimationFrame(animate);
   }
 
   let startTime;

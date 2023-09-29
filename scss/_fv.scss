@@ -1150,6 +1150,7 @@ img {
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  z-index: 3;
 }
 .footer-left {
   display: flex;
@@ -1274,6 +1275,7 @@ img {
   z-index: 2;
   cursor: pointer;
   display: none;
+  z-index: 3;
 }
 .page-top-02 {
   position: absolute;
@@ -1469,12 +1471,12 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   }
   .fv-img-box {
     picture {
-      height: 100%;
+      height: 100%; 
     }
     img {
-      overflow: initial;
       object-position: 31%;
-      width: 100%;
+      width: auto;
+      overflow: visible;
     }
   }
   .logo-link {
@@ -1489,7 +1491,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     position: absolute;
     top: 51px;
     left: 32px;
-    z-index: 2;
+    z-index: 7;
   }
   .bard {
     img {
@@ -2591,7 +2593,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     object-fit: cover;
     opacity: 1;
     animation: slideAnimation 55s linear infinite 0.2s;
-    transform: translateX(30%);
+    transform: translateX(-10%);
   }
 
   @keyframes slideAnimation {
@@ -2615,7 +2617,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     }
     100% {
       opacity: 0;
-      transform: translateX(-100%);
+      transform: translateX(-55%);
     }
   }
 }
