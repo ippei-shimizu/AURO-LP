@@ -35,6 +35,36 @@ $(document).ready(function () {
 
   window.addEventListener("resize", initFullPage);
   window.addEventListener("orientationchange", initFullPage);
+
+  // ページ読み込み時のチェック
+  handleResponsiveImages();
+
+  // ウィンドウのリサイズ時のチェック
+  window.addEventListener("resize", handleResponsiveImages);
+
+  function handleResponsiveImages() {
+    const imageMappings = [
+      { selector: ".penki-02", defaultSrc: "./images/penki-02-1.png" },
+      { selector: ".penki-05", defaultSrc: "./images/penki-4-1.png" },
+      { selector: ".wax-01", defaultSrc: "./images/wax-01-1.png" },
+      { selector: ".senzai-04", defaultSrc: "./images/senzai-04.png" },
+    ];
+
+    imageMappings.forEach((mapping) => {
+      updateImageSrc(mapping.selector, mapping.defaultSrc);
+    });
+  }
+
+  function updateImageSrc(selector, defaultSrc) {
+    const imgElement = document.querySelector(selector);
+    if (imgElement) {
+      if (window.innerWidth <= 790) {
+        imgElement.src = imgElement.getAttribute("data-mobile-src");
+      } else {
+        imgElement.src = defaultSrc;
+      }
+    }
+  }
 });
 
 window.addEventListener("load", () => {
@@ -54,67 +84,128 @@ window.addEventListener("load", () => {
     }
   });
 
-  const elem = document.querySelector(".swiper-container");
-  if (elem === null) return;
-  
-  const swiperParams = {
-    loop: true,
-    effect: "fade",
-    autoplay: {
-      delay: 8000,
-      disableOnInteraction: false,
-    },
-    speed: 1000,
-    allowTouchMove: false,
-    on: {
-      init: function () {
-        // 初期化時に非アクティブなスライドのopacityを0にする
-        updateSlidesOpacity(this);
+  if (window.innerWidth >= 790) {
+    const elem = document.querySelector(".swiper-container");
+    if (elem === null) return;
+
+    const swiperParams = {
+      loop: true,
+      effect: "fade",
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
       },
-      slideChangeTransitionStart: function () {
-        // スライドが変更される前に、全てのスライドのopacityを0にする
-        for (const slide of this.slides) {
+      speed: 1000,
+      allowTouchMove: false,
+      on: {
+        init: function () {
+          // 初期化時に非アクティブなスライドのopacityを0にする
+          updateSlidesOpacity(this);
+        },
+        slideChangeTransitionStart: function () {
+          // スライドが変更される前に、全てのスライドのopacityを0にする
+          for (const slide of this.slides) {
+            slide.style.opacity = 0;
+          }
+        },
+        slideChangeTransitionEnd: function () {
+          // スライドのトランジションが終了したら、次のスライドのopacityを1にする
+          const nextSlide = this.slides[this.activeIndex];
+          fadeInSlide(nextSlide);
+        },
+      },
+    };
+    const swiper = new Swiper(".swiper-container", swiperParams);
+
+    function fadeInSlide(slide) {
+      let opacityValue = 0;
+      const interval = setInterval(() => {
+        opacityValue += 0.01;
+        slide.style.opacity = opacityValue;
+
+        if (opacityValue >= 1) {
+          clearInterval(interval);
+        }
+      }, 20); // 30ms間隔で0.01増加。全体でおおよそ3秒間かかります。
+    }
+
+    function updateSlidesOpacity(swiperInstance) {
+      // 全てのスライドを取得
+      const slides = swiperInstance.slides;
+
+      for (let i = 0; i < slides.length; i++) {
+        const slide = slides[i];
+        if (i === swiperInstance.activeIndex) {
+          // アクティブなスライドの場合はopacityを1にする
+          slide.style.opacity = 1;
+        } else {
+          // 非アクティブなスライドの場合はopacityを0にする
           slide.style.opacity = 0;
         }
-      },
-      slideChangeTransitionEnd: function () {
-        // スライドのトランジションが終了したら、次のスライドのopacityを1にする
-        const nextSlide = this.slides[this.activeIndex];
-        fadeInSlide(nextSlide);
-      },
-    },
-  };
-  
-  const swiper = new Swiper(".swiper-container", swiperParams);
-  
-  function fadeInSlide(slide) {
-    let opacityValue = 0;
-    const interval = setInterval(() => {
-      opacityValue += 0.01;
-      slide.style.opacity = opacityValue;
-  
-      if (opacityValue >= 1) {
-        clearInterval(interval);
-      }
-    }, 20); // 30ms間隔で0.01増加。全体でおおよそ3秒間かかります。
-  }
-  
-  function updateSlidesOpacity(swiperInstance) {
-    // 全てのスライドを取得
-    const slides = swiperInstance.slides;
-  
-    for (let i = 0; i < slides.length; i++) {
-      const slide = slides[i];
-      if (i === swiperInstance.activeIndex) {
-        // アクティブなスライドの場合はopacityを1にする
-        slide.style.opacity = 1;
-      } else {
-        // 非アクティブなスライドの場合はopacityを0にする
-        slide.style.opacity = 0;
       }
     }
+  } else {
+    const elem = document.querySelector(".swiper-container");
+    if (elem === null) return;
+
+    const swiperParams = {
+      loop: true,
+      effect: "fade",
+      autoplay: {
+        delay: 55000,
+        disableOnInteraction: false,
+      },
+      speed: 0,
+      allowTouchMove: false,
+    };
+
+    const swiper = new Swiper(".swiper-container", swiperParams);
+
+    let startTime;
+    let direction = "right-down";
+    let isWaiting = false;
+    let shouldResetTime = false;
+
+    const birdElem = document.getElementById("bard");
+
+    function animate(timestamp) {
+      if (startTime === undefined || shouldResetTime) {
+        startTime = timestamp;
+        shouldResetTime = false;
+      }
+
+      const elapsed = timestamp - startTime;
+
+      if (elapsed >= 14000 && !isWaiting) {
+        direction = direction === "right-down" ? "left-up" : "right-down";
+        isWaiting = true;
+        setTimeout(() => {
+          isWaiting = false;
+          shouldResetTime = true;
+        }, 3000);
+        return requestAnimationFrame(animate);
+      }
+
+      if (isWaiting) {
+        return requestAnimationFrame(animate);
+      }
+
+      let progress = elapsed / 14000;
+      let curve = Math.sin(progress * Math.PI) * 2;
+
+      if (direction === "right-down") {
+        birdElem.style.transform = `translate(${2324.12 * progress}px, ${
+          484.179 * progress * curve
+        }px) rotate(${-4.07523 * progress}deg) scaleX(1)`;
+      } else {
+        birdElem.style.transform = `translate(${2324.12 * (1 - progress)}px, ${
+          434.179 * (1 - progress) * curve
+        }px) rotate(${-4.07523 * (1 - progress)}deg) scaleX(-1)`;
+      }
+
+      requestAnimationFrame(animate);
+    }
   }
-  
 
   let startTime;
   let direction = "right-down";
@@ -411,21 +502,19 @@ window.addEventListener("load", () => {
       scrollTriggers.push(st17.scrollTrigger);
 
       document.querySelectorAll(".fade-in-03").forEach((elem) => {
-        gsap.set(elem, { opacity: 0, x: "-5%" });
-
-        let animation2 = gsap.to(elem, {
-          opacity: 1,
-          x: 0,
-          filter: "blur(0px)",
-          duration: 1.6,
-          ease: "cubic-bezier(.03,.69,.98,.67)",
+        let animation = gsap.from(elem, {
           scrollTrigger: {
             trigger: elem,
-            start: "top 80%",
+            start: "top bottom",
             once: true,
           },
+          filter: "blur(10px)",
+          scale: 1.02,
+          opacity: 0,
+          duration: 1,
+          ease: "power1.out",
         });
-        scrollTriggers.push(animation2.scrollTrigger);
+        scrollTriggers.push(animation.scrollTrigger);
       });
 
       document.querySelectorAll(".ato").forEach((elem, index) => {

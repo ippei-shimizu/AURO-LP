@@ -762,8 +762,9 @@ img {
 .wax-03 {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: auto;
   height: 100vh;
 }
@@ -958,6 +959,7 @@ img {
   right: 0;
   left: 0;
   display: block;
+  margin: 0 auto;
   width: auto;
   height: 100vh;
 }
@@ -1435,7 +1437,16 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     }
   }
 }
+.sp-block {
+  display: none;
+}
 @include media(bp790) {
+  .sp-none {
+    display: none;
+  }
+  .sp-block {
+    display: inline;
+  }
   .sp-email-tel {
     display: block;
   }
@@ -1463,6 +1474,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     img {
       overflow: initial;
       object-position: 31%;
+      width: 100%;
     }
   }
   .logo-link {
@@ -2057,7 +2069,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   .senzai-04 {
     position: initial;
     width: 114%;
-    margin: 164px auto 0;
+    margin: 164px auto 0 -24px;
     display: block;
   }
   .section-08-text-04-02 {
@@ -2371,6 +2383,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     right: 16px;
     width: 21px;
     height: 21px;
+    bottom: 54px;
   }
   .sp-side {
     display: block;
@@ -2409,6 +2422,200 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     width: 100%;
     height: 100vh;
     mix-blend-mode: multiply;
-    z-index: 1;
+    z-index: 2;
+  }
+  #section2 {
+    .section2-sub-title {
+      display: none;
+    }
+    .penki-img {
+      left: 0;
+      min-width: initial;
+    }
+  }
+  .section-3-text {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  #section3 {
+    .penki-02 {
+      height: auto;
+      width: 122%;
+      display: block;
+      margin-top: 70px;
+      margin-left: 87px;
+      margin-right: initial;
+    }
+  }
+  .penki-03 {
+    height: auto;
+  }
+  #section4 {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  #section5 {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .penki-05 {
+    height: auto;
+    margin-top: 99px;
+    margin-bottom: 52px;
+  }
+  .penki-06 {
+    min-width: initial;
+  }
+  #section6 {
+    .section2-sub-title {
+      display: none;
+    }
+  }
+  #section7 {
+    .section7-text-01 {
+      display: block;
+      width: 100%;
+      .text-2 {
+        text-align: center;
+      }
+    }
+    .wax-01 {
+      height: auto;
+    }
+  }
+  #section8 {
+    padding-top: 92px;
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .wax-02 {
+    height: auto;
+  }
+  .wax-03 {
+    height: auto;
+  }
+  #section9 {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .senzai-01 {
+    min-width: initial;
+  }
+  #section10 {
+    .section2-sub-title {
+      display: none;
+    }
+  }
+  #section11 {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .senzai-02 {
+    width: 100%;
+    height: auto;
+  }
+  .senzai-03 {
+    height: auto;
+  }
+  #section13 {
+    .section-08-text-01,
+    .section-08-text-02,
+    .section-08-text-03,
+    .section-08-text-04,
+    .section-08-text-05 {
+      width: 100%;
+    }
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .senzai-04 {
+    height: auto;
+  }
+  .senzai-05 {
+    height: auto;
+  }
+  #section13-2 {
+    .section-13-text-01 {
+      .text-2 {
+        text-align: center;
+      }
+    }
+  }
+  #section14 {
+    .text-2 {
+      text-align: center;
+    }
+  }
+  .senzai-06 {
+    height: auto;
+  }
+  .senzai-07 {
+    height: auto;
+  }
+  #footer {
+    position: initial;
+    height: auto;
+    padding-bottom: 78px;
+  }
+  .page-top-02 {
+    display: none;
+  }
+  .footer-contents {
+    padding: 0 45px;
+    height: auto;
+  }
+  .footer-btm {
+    margin-top: 50px;
+    row-gap: 0;
+    text-align: center;
+    p {
+      margin-bottom: 6px;
+    }
+  }
+  .section7-text-01 .text-box:nth-child(2) {
+    margin-bottom: 30px;
+  }
+  .section7-text-01 .text-box:nth-child(4) {
+    top: 0;
+  }
+  .fv-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    animation: slideAnimation 55s linear infinite 0.2s;
+    transform: translateX(30%);
+  }
+
+  @keyframes slideAnimation {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    30% {
+      opacity: 1;
+    }
+    65% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    98% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
   }
 }
