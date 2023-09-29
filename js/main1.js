@@ -56,19 +56,65 @@ window.addEventListener("load", () => {
 
   const elem = document.querySelector(".swiper-container");
   if (elem === null) return;
-
+  
   const swiperParams = {
     loop: true,
     effect: "fade",
     autoplay: {
+      delay: 8000,
       disableOnInteraction: false,
     },
-    speed: 2500,
-    duration: 1000,
+    speed: 1000,
     allowTouchMove: false,
+    on: {
+      init: function () {
+        // 初期化時に非アクティブなスライドのopacityを0にする
+        updateSlidesOpacity(this);
+      },
+      slideChangeTransitionStart: function () {
+        // スライドが変更される前に、全てのスライドのopacityを0にする
+        for (const slide of this.slides) {
+          slide.style.opacity = 0;
+        }
+      },
+      slideChangeTransitionEnd: function () {
+        // スライドのトランジションが終了したら、次のスライドのopacityを1にする
+        const nextSlide = this.slides[this.activeIndex];
+        fadeInSlide(nextSlide);
+      },
+    },
   };
-
+  
   const swiper = new Swiper(".swiper-container", swiperParams);
+  
+  function fadeInSlide(slide) {
+    let opacityValue = 0;
+    const interval = setInterval(() => {
+      opacityValue += 0.01;
+      slide.style.opacity = opacityValue;
+  
+      if (opacityValue >= 1) {
+        clearInterval(interval);
+      }
+    }, 20); // 30ms間隔で0.01増加。全体でおおよそ3秒間かかります。
+  }
+  
+  function updateSlidesOpacity(swiperInstance) {
+    // 全てのスライドを取得
+    const slides = swiperInstance.slides;
+  
+    for (let i = 0; i < slides.length; i++) {
+      const slide = slides[i];
+      if (i === swiperInstance.activeIndex) {
+        // アクティブなスライドの場合はopacityを1にする
+        slide.style.opacity = 1;
+      } else {
+        // 非アクティブなスライドの場合はopacityを0にする
+        slide.style.opacity = 0;
+      }
+    }
+  }
+  
 
   let startTime;
   let direction = "right-down";
@@ -135,7 +181,7 @@ window.addEventListener("load", () => {
         behavior: "smooth",
       });
     });
-    document
+  document
     .getElementById("page-top-sp")
     .addEventListener("click", function (event) {
       window.scrollTo({
@@ -370,6 +416,7 @@ window.addEventListener("load", () => {
         let animation2 = gsap.to(elem, {
           opacity: 1,
           x: 0,
+          filter: "blur(0px)",
           duration: 1.6,
           ease: "cubic-bezier(.03,.69,.98,.67)",
           scrollTrigger: {
@@ -468,28 +515,37 @@ window.addEventListener("load", () => {
           gsap.set(".auro-title-box", { opacity: "0", x: "-100%" });
           gsap.set(".auro-title-sub", { opacity: "0", x: "100%" });
           gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
+          gsap.set(".auro-title-box-3", { opacity: "0", x: "-100%" });
+          gsap.set(".auro-title-sub-3", { opacity: "0", x: "100%" });
+          gsap.set(".sub-leaf-3", { left: "-36px", right: "auto" });
+          gsap.set(".auro-title-box-4", { opacity: "0", x: "-100%" });
+          gsap.set(".auro-title-sub-4", { opacity: "0", x: "100%" });
+          gsap.set(".sub-leaf-4", { left: "-36px", right: "auto" });
+          gsap.set(".auro-title-box-5", { opacity: "0", x: "-100%" });
+          gsap.set(".auro-title-sub-5", { opacity: "0", x: "100%" });
+          gsap.set(".sub-leaf-5", { left: "-36px", right: "auto" });
           gsap.set(".penki-img", { opacity: "0", filter: "blur(10px)" });
-          gsap.set(".penki-02", { opacity: 0, x: "-10%" });
+          gsap.set(".penki-02", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-05", { opacity: 0, y: "30px" });
-          gsap.set(".penki-03", { opacity: 0, x: "-10%" });
+          gsap.set(".penki-03", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-06", { opacity: 0, y: "30px" });
-          gsap.set(".penki-05", { opacity: 0, x: "-10%" });
+          gsap.set(".penki-05", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-07", { opacity: 0, y: "30px" });
           gsap.set(".penki-06", { opacity: "0", filter: "blur(10px)" });
-          gsap.set(".wax-01", { opacity: 0, x: "-10%" });
+          gsap.set(".wax-01", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-08", { opacity: 0, y: "30px" });
-          gsap.set(".wax-02", { opacity: 0, x: "-10%" });
+          gsap.set(".wax-02", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-09", { opacity: 0, y: "30px" });
-          gsap.set(".wax-03", { opacity: 0, x: "-10%" });
+          gsap.set(".wax-03", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-10", { opacity: 0, y: "30px" });
           gsap.set(".senzai-01", { opacity: "0", filter: "blur(10px)" });
-          gsap.set(".senzai-02", { opacity: 0, x: "-10%" });
+          gsap.set(".senzai-02", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-11", { opacity: 0, y: "30px" });
-          gsap.set(".senzai-03", { opacity: 0, x: "-10%" });
+          gsap.set(".senzai-03", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-12", { opacity: 0, y: "30px" });
           gsap.set(".awa-01", { opacity: 0 });
           gsap.set(".awa-02", { opacity: 0 });
-          gsap.set(".senzai-04", { opacity: 0, x: "-10%" });
+          gsap.set(".senzai-04", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-13", { opacity: 0, y: "30px" });
           gsap.set(
             [
@@ -507,7 +563,7 @@ window.addEventListener("load", () => {
             ],
             { opacity: 0 }
           );
-          gsap.set(".senzai-05", { opacity: 0, x: "-10%" });
+          gsap.set(".senzai-05", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-14", { opacity: 0, y: "30px" });
           gsap.set(
             [
@@ -546,11 +602,11 @@ window.addEventListener("load", () => {
             ],
             { opacity: 0 }
           );
-          gsap.set(".senzai-06", { opacity: 0, x: "-10%" });
+          gsap.set(".senzai-06", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-15", { opacity: 0, y: "30px" });
           gsap.set(".senzai-07", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".wood-03", { x: "-100%" });
-          gsap.set(".kuma", { opacity: 0, x: "-10%" });
+          gsap.set(".kuma", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".fade-in-20", { opacity: "0", filter: "blur(10px)" });
           gsap.set(".auro-title-wrap", { opacity: "0", x: "-100%" });
           gsap.set(".auro-title-sub-02", { opacity: "0", x: "100%" });
@@ -605,11 +661,33 @@ window.addEventListener("load", () => {
               duration: 1,
               ease: "power1.out",
             });
+            gsap.to(".auro-title-box-3", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-sub-3", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".sub-leaf-3", {
+              left: "initial",
+              right: "-58px",
+              duration: 1.2,
+              delay: 1,
+              ease: "power1.out",
+            });
           }
           if (anchorLink === "page4") {
             gsap.to(".penki-02", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -634,6 +712,7 @@ window.addEventListener("load", () => {
             gsap.to(".penki-03", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -673,6 +752,7 @@ window.addEventListener("load", () => {
             gsap.to(".penki-05", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -720,11 +800,33 @@ window.addEventListener("load", () => {
               duration: 1,
               ease: "power1.out",
             });
+            gsap.to(".auro-title-box-4", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-sub-4", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".sub-leaf-4", {
+              left: "initial",
+              right: "-58px",
+              duration: 1.2,
+              delay: 1,
+              ease: "power1.out",
+            });
           }
           if (anchorLink === "page8") {
             gsap.to(".wax-01", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -749,6 +851,7 @@ window.addEventListener("load", () => {
             gsap.to(".wax-02", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -773,6 +876,7 @@ window.addEventListener("load", () => {
             gsap.to(".wax-03", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -801,11 +905,33 @@ window.addEventListener("load", () => {
               duration: 1,
               ease: "power1.out",
             });
+            gsap.to(".auro-title-box-5", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".auro-title-sub-5", {
+              x: "0%",
+              opacity: 1,
+              duration: 1,
+              delay: 1,
+              ease: "power1.out",
+            });
+            gsap.to(".sub-leaf-5", {
+              left: "initial",
+              right: "-58px",
+              duration: 1.2,
+              delay: 1,
+              ease: "power1.out",
+            });
           }
           if (anchorLink === "page12") {
             gsap.to(".senzai-02", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -830,6 +956,7 @@ window.addEventListener("load", () => {
             gsap.to(".senzai-03", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -867,6 +994,7 @@ window.addEventListener("load", () => {
             gsap.to(".senzai-04", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -909,6 +1037,7 @@ window.addEventListener("load", () => {
           if (anchorLink === "page15") {
             gsap.to(".senzai-05", {
               opacity: 1,
+              filter: "blur(0px)",
               x: "0%",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
@@ -955,6 +1084,7 @@ window.addEventListener("load", () => {
             gsap.to(".senzai-06", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -993,6 +1123,7 @@ window.addEventListener("load", () => {
             gsap.to(".kuma", {
               opacity: 1,
               x: 0,
+              filter: "blur(0px)",
               duration: 1.6,
               ease: "cubic-bezier(.03,.69,.98,.67)",
             });
@@ -1046,161 +1177,6 @@ window.addEventListener("load", () => {
     }
   }
   setupScrollTriggers();
-
-  // gsap
-  // gsap.registerPlugin(ScrollTrigger);
-  // gsap.from(".wood-03", {
-  //   scrollTrigger: {
-  //     trigger: ".wood-03",
-  //     start: "top bottom",
-  //     toggleActions: "play none none reverse",
-  //     once: true,
-  //   },
-  //   x: "-100%",
-  //   duration: 2,
-  //   ease: "cubic-bezier(0.25,0.46,0.45,0.94)",
-  // });
-
-  // document.querySelectorAll(".fade-in-01").forEach((elem, index) => {
-  //   gsap.from(elem, {
-  //     scrollTrigger: {
-  //       trigger: elem,
-  //       start: "top bottom",
-  //       once: true,
-  //     },
-  //     filter: "blur(10px)",
-  //     scale: 1.02,
-  //     opacity: 0,
-  //     duration: 1,
-  //     ease: "power1.out",
-  //   });
-  // });
-
-  // gsap.set(".sub-leaf", { left: "-36px", right: "auto" });
-  // gsap.to(".sub-leaf", {
-  //   left: "initial",
-  //   right: "-36px",
-  //   scrollTrigger: {
-  //     trigger: ".section2-sub-title",
-  //     start: "top bottom",
-  //     once: true,
-  //   },
-  //   duration: 1.2,
-  //   delay: 1,
-  //   ease: "power1.out",
-  // });
-
-  // gsap.from(".auro-title-wrap", {
-  //   x: "-100%",
-  //   opacity: 0,
-  //   scrollTrigger: {
-  //     trigger: ".auro-title-wrap",
-  //     start: "top bottom",
-  //     once: true,
-  //   },
-  //   duration: 1,
-  //   delay: 1,
-  //   ease: "power1.out",
-  // });
-  // gsap.from(".auro-title-sub-02", {
-  //   x: "100%",
-  //   opacity: 0,
-  //   scrollTrigger: {
-  //     trigger: ".auro-title-sub-02",
-  //     start: "top bottom",
-  //     once: true,
-  //   },
-  //   duration: 1,
-  //   delay: 1,
-  //   ease: "power1.out",
-  // });
-
-  // gsap.set(".fade-in-02", {
-  //   opacity: 0,
-  //   y: "30px",
-  // });
-
-  // document.querySelectorAll(".fade-in-02").forEach((elem, index) => {
-  //   gsap.to(elem, {
-  //     opacity: 1,
-  //     y: 1.6e-6,
-  //     delay: 0.02 * index,
-  //     duration: 0.5,
-  //     ease: "cubic-bezier(.03,.69,.98,.67)",
-  //     scrollTrigger: {
-  //       trigger: elem,
-  //       start: "top 100%",
-  //       once: true,
-  //     },
-  //     onComplete: function () {
-  //       gsap.to(elem, {
-  //         y: 0,
-  //         duration: 0.5,
-  //         ease: "cubic-bezier(.03,.69,.98,.67)",
-  //       });
-  //     },
-  //   });
-  // });
-
-  // gsap.set(".sub-leaf-16", { left: "-36px", right: "auto" });
-  // gsap.to(".sub-leaf-16", {
-  //   left: "initial",
-  //   right: "-30px",
-  //   scrollTrigger: {
-  //     trigger: ".sub-leaf-16",
-  //     start: "top 80%",
-  //     once: true,
-  //   },
-  //   duration: 1.2,
-  //   delay: 1,
-  //   ease: "power1.out",
-  // });
-
-  // document.querySelectorAll(".fade-in-03").forEach((elem) => {
-  //   gsap.set(elem, { opacity: 0, x: "-5%" });
-
-  //   gsap.to(elem, {
-  //     opacity: 1,
-  //     x: 0,
-  //     duration: 1.6,
-  //     ease: "cubic-bezier(.03,.69,.98,.67)",
-  //     scrollTrigger: {
-  //       trigger: elem,
-  //       start: "top 80%",
-  //       once: true,
-  //     },
-  //   });
-  // });
-
-  // document.querySelectorAll(".ato").forEach((elem, index) => {
-  //   gsap.set(elem, { opacity: 0 });
-
-  //   gsap.to(elem, {
-  //     scrollTrigger: {
-  //       trigger: elem,
-  //       start: "top 100%",
-  //       once: true,
-  //     },
-  //     opacity: 1,
-  //     ease: "none",
-  //     delay: 0.2 * index,
-  //     duration: 0.02,
-  //   });
-  // });
-
-  // document.querySelectorAll(".awa-img").forEach((elem) => {
-  //   gsap.set(elem, { opacity: 0 });
-
-  //   gsap.to(elem, {
-  //     opacity: 1,
-  //     scrollTrigger: {
-  //       trigger: elem,
-  //       start: "top 80%",
-  //       once: true,
-  //     },
-  //     ease: "power1.out",
-  //   });
-  // });
 });
 
 function updateSideVisibility() {

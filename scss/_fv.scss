@@ -110,16 +110,21 @@ img {
   height: 100%;
 }
 
+.swiper-slide {
+  transition: opacity 3s ease-out; /* 3秒間のdurationでopacityを変更する */
+}
+
 .fv-img-box {
 }
 
 .fv-img {
-  width: 90%;
-  height: 100%;
+  width: auto;
+  height: 100vh;
   object-fit: cover;
   object-position: center;
   display: block;
   margin: 0 auto;
+  transition: opacity 0.3s;
 }
 
 @keyframes slideAnimation {
@@ -334,12 +339,70 @@ img {
     width: 58.365px;
     position: absolute;
   }
+  .auro-title-box-3 {
+    overflow: hidden;
+    h3 {
+      text-align: center;
+      font-family: $family-shirokuma;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 80px; /* 125% */
+      letter-spacing: -12.8px;
+    }
+  }
+  .auro-title-box-4 {
+    overflow: hidden;
+    h3 {
+      text-align: center;
+      font-family: $family-shirokuma;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 80px; /* 125% */
+      letter-spacing: -12.8px;
+    }
+  }
+  .auro-title-box-5 {
+    overflow: hidden;
+    h3 {
+      text-align: center;
+      font-family: $family-shirokuma;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 80px; /* 125% */
+      letter-spacing: -12.8px;
+    }
+  }
+  .sub-leaf-3 {
+    display: block;
+    width: 58.365px;
+    position: absolute;
+    top: 0;
+  }
+  .sub-leaf-4 {
+    display: block;
+    width: 58.365px;
+    position: absolute;
+    top: 0;
+  }
+  .sub-leaf-5 {
+    display: block;
+    width: 58.365px;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .penki-img {
   display: block;
   margin: 0 auto;
-  width: 30%;
+  width: 24%;
+  min-width: 240px;
+  position: relative;
+  left: 52px;
+  margin-bottom: 50px;
 }
 
 .penki-02 {
@@ -356,8 +419,8 @@ img {
   position: relative;
   z-index: 2;
   width: fit-content;
-  margin: 0 12% 0 auto;
-  top: -140px;
+  margin: 0 0 0 10%;
+  top: -151px;
 }
 .text-box {
   &:nth-child(even) {
@@ -369,7 +432,7 @@ img {
 }
 .text-2 {
   color: var(--AURO_, #553219);
-  text-align: center;
+  text-align: left;
   font-family: $family-a-otf-jun-pro;
   font-size: 20px;
   font-style: normal;
@@ -393,11 +456,11 @@ img {
   position: absolute;
   z-index: 1;
   top: 9%;
-  right: 18%;
+  left: 7%;
   .text-box {
     .text-2 {
       &:nth-child(1) {
-        margin-bottom: 43px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -406,8 +469,13 @@ img {
   z-index: 1;
   width: fit-content;
   position: absolute;
-  left: 8%;
-  top: 32%;
+  left: 7%;
+  bottom: 9%;
+  .text-box {
+    &:nth-child(2) {
+      margin: 20px 0;
+    }
+  }
 }
 .ato-box-01 {
   position: absolute;
@@ -432,11 +500,12 @@ img {
 .ato-04 {
   position: relative;
   top: 18px;
+  right: -178%;
 }
 .ato-box-02 {
   position: absolute;
-  bottom: 110px;
-  left: 12%;
+  top: 34%;
+  left: 6%;
 }
 .ato-05 {
   position: relative;
@@ -457,25 +526,25 @@ img {
   position: absolute;
   z-index: 1;
   top: 9%;
-  left: 14%;
+  left: 9%;
 }
 .section5-text-02 {
   position: absolute;
   z-index: 1;
   top: 17%;
-  left: 24%;
+  left: 9%;
 }
 .section5-text-03 {
   position: absolute;
   z-index: 1;
-  top: 40%;
-  right: 16%;
+  top: 35%;
+  left: 9%;
 }
 .section5-text-04 {
   position: absolute;
   z-index: 1;
-  top: 55%;
-  right: 10%;
+  top: 45%;
+  left: 9%;
 }
 .ato-07 {
   position: absolute;
@@ -533,10 +602,9 @@ img {
 }
 
 .penki-06 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto 36px;
+  min-width: 345px;
   width: 30%;
 }
 
@@ -552,18 +620,40 @@ img {
 }
 .section7-text-01 {
   position: absolute;
-  top: 20%;
-  left: 10%;
+  top: 9%;
+  left: 9%;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: space-between;
+  width: 80%;
   .text-box {
+    width: 100%;
+    .text-2 {
+      text-align: left;
+    }
     &:nth-child(1) {
-      margin-bottom: 35px;
+      margin-bottom: 16px;
+      grid-row-start: 1;
+      grid-column-start: 1;
+    }
+    &:nth-child(2) {
+      margin-top: 0;
+      margin-bottom: 0;
+      grid-row-start: 2;
+      grid-column-start: 1;
     }
     &:nth-child(3) {
       margin-bottom: 35px;
+      grid-row-start: 2;
+      grid-column-start: 2;
     }
     &:nth-child(4) {
       margin-top: 0;
+      grid-row-start: 2;
+      grid-column-start: 2;
+      position: relative;
+      top: 50px;
     }
   }
 }
@@ -581,18 +671,18 @@ img {
   position: absolute;
   z-index: 1;
   top: 10%;
-  right: 30%;
+  left: 9%;
 }
 .section-08-text-02 {
   position: absolute;
-  top: 26%;
-  right: 20%;
+  top: 22%;
+  left: 9%;
   z-index: 1;
 }
 .section-08-text-03 {
   position: absolute;
-  top: 42%;
-  right: 8%;
+  top: 34%;
+  left: 9%;
   z-index: 1;
   .text-box {
     .text-2 {
@@ -605,8 +695,8 @@ img {
 }
 .section-08-text-04 {
   position: absolute;
-  top: 67%;
-  right: 12%;
+  top: 57%;
+  left: 9%;
   z-index: 1;
 }
 #section13 {
@@ -616,56 +706,56 @@ img {
 }
 .section-08-text-05 {
   position: absolute;
-  top: 79%;
-  right: 12%;
+  top: 63%;
+  left: 9%;
   z-index: 1;
 }
 .star-01 {
   position: absolute;
-  top: 12%;
-  right: 55%;
+  top: 3%;
+  left: 4%;
   z-index: 1;
 }
 .star-02 {
   position: absolute;
-  top: 9%;
-  right: 53%;
+  top: 8%;
+  left: 3%;
   z-index: 1;
 }
 .star-03 {
   position: absolute;
-  top: 26%;
-  right: 15%;
+  top: 2%;
+  left: 30%;
   z-index: 1;
 }
 .star-04 {
   position: absolute;
-  top: 32%;
-  right: 13%;
+  top: 20%;
+  left: 5%;
   z-index: 1;
 }
 .star-05 {
   position: absolute;
-  top: 54%;
-  right: 13%;
+  bottom: 24%;
+  left: 4%;
   z-index: 1;
 }
 .star-06 {
   position: absolute;
-  top: 61%;
-  right: 5%;
+  bottom: 16%;
+  left: 8%;
   z-index: 1;
 }
 .star-07 {
   position: absolute;
-  top: 66%;
-  right: 7%;
+  bottom: 13%;
+  left: 6%;
   z-index: 1;
 }
 .star-08 {
   position: absolute;
-  top: 69%;
-  right: 23%;
+  bottom: 8%;
+  left: 9%;
   z-index: 1;
 }
 
@@ -679,7 +769,7 @@ img {
 }
 .section-09-text {
   position: absolute;
-  top: 20%;
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -687,18 +777,18 @@ img {
   margin: 0 auto;
   .text-box {
     .text-2 {
+      text-align: center;
       &:nth-child(1) {
-        margin-bottom: 62px;
+        margin-bottom: 30px;
       }
     }
   }
 }
 
 .senzai-01 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: block;
+  margin: 0 auto 47px;
+  min-width: 396px;
   width: 30%;
 }
 
@@ -714,10 +804,17 @@ img {
   position: relative;
   z-index: 1;
   width: fit-content;
-  margin-left: 8%;
+  margin: auto 0 160px 7%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   .text-box {
     &:nth-child(1) {
-      margin-bottom: 70%;
+      margin-bottom: 30px;
+    }
+    &:nth-child(2) {
+      margin-top: 0;
     }
   }
 }
@@ -732,24 +829,28 @@ img {
 }
 .section-12-text-01 {
   position: absolute;
-  top: 6%;
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   .text-box {
     .text-2 {
+      text-align: center;
       &:nth-child(1) {
-        margin-bottom: 48px;
+        margin-bottom: 25px;
       }
     }
   }
 }
 .section-12-text-02 {
   position: absolute;
-  bottom: 6%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
+  .text-2 {
+    text-align: center;
+  }
 }
 .awa-01 {
   position: absolute;
@@ -773,19 +874,33 @@ img {
 }
 #section13 {
   .section-08-text-01 {
-    right: 20%;
+    width: 360px;
+    right: 6%;
+    left: initial;
   }
   .section-08-text-02 {
-    right: 11%;
+    width: 360px;
+    right: 6%;
+    left: initial;
   }
   .section-08-text-03 {
-    right: 7%;
+    width: 360px;
+    right: 6%;
+    left: initial;
   }
   .section-08-text-04 {
-    right: 11%;
+    width: 360px;
+    right: 0%;
+    top: initial;
+    left: initial;
+    bottom: 24%;
   }
   .section-08-text-05 {
-    right: 13%;
+    width: 360px;
+    right: 0%;
+    top: initial;
+    left: initial;
+    bottom: 16%;
   }
 }
 .awa-img {
@@ -848,7 +963,7 @@ img {
 }
 .section-13-text-01 {
   position: absolute;
-  top: 12%;
+  top: 7%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -919,26 +1034,30 @@ img {
 .section-14-text-01 {
   position: relative;
   z-index: 1;
-  width: fit-content;
-  margin-left: 8%;
+  width: 260px;
+  margin: 0 0 0 auto;
+  right: 4%;
 }
 .section-14-text-02 {
   position: relative;
   z-index: 1;
-  width: fit-content;
-  margin: 35px 0 104px 10%;
+  width: 260px;
+  margin: 30px 0 30px auto;
+  right: 4%;
 }
 .section-14-text-03 {
   position: relative;
   z-index: 1;
-  width: fit-content;
-  margin-left: 8%;
+  width: 260px;
+  margin: 0 0 0 auto;
+  right: 4%;
 }
 .section-14-text-04 {
   position: relative;
   z-index: 1;
-  width: fit-content;
-  margin: 11% 0 0 15%;
+  width: 260px;
+  margin: 40vh 0 0 auto;
+  right: 4%;
 }
 
 .senzai-07 {
@@ -1007,7 +1126,7 @@ img {
   text-align: left;
   width: fit-content;
   margin: 0% auto 0;
-  bottom: -213px;
+  bottom: -265px;
   .text-2 {
     text-align: left;
   }
@@ -1042,7 +1161,7 @@ img {
 }
 .footer-logo {
   display: block;
-  margin-left: -71px;
+  margin-left: -49px;
   width: 283.844px;
 }
 .footer-info {
