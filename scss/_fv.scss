@@ -8,6 +8,14 @@
   font-family: "A-OTF-Jun34Pro-Medium";
   src: url("../fonts/A-OTF-Jun34Pro-Medium.otf") format("opentype");
 }
+@font-face {
+  font-family: "A-OTF-UDReiminPro-Medium";
+  src: url("../fonts/A-OTF-UDReiminPro-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "A-OTF-UDReiminPro-Light";
+  src: url("../fonts/A-OTF-UDReiminPro-Light.otf") format("opentype");
+}
 
 :root {
   --AURO_: #553219;
@@ -103,17 +111,15 @@ img {
 }
 
 .fv-img-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .fv-img {
-  width: 100%;
+  width: 90%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  animation: slideAnimation 10s linear infinite 0.2s;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes slideAnimation {
@@ -156,6 +162,9 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @include media(bp790) {
+      display: none;
+    }
   }
 }
 
@@ -334,8 +343,11 @@ img {
 }
 
 .penki-02 {
-  width: 60%;
+  width: auto;
+  height: 100vh;
+  margin: 0 auto;
   position: absolute;
+  right: 0;
   left: 0;
   bottom: 0;
   // max-width: 1100px;
@@ -367,12 +379,14 @@ img {
 }
 
 .penki-03 {
-  width: 65%;
-  // max-width: 1186px;
+  width: auto;
+  height: 100vh;
   display: block;
   position: absolute;
   right: 0;
+  left: 0;
   bottom: 0;
+  margin: 0 auto;
 }
 .section-4-text {
   width: fit-content;
@@ -433,8 +447,11 @@ img {
 .penki-05 {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: 0;
-  width: 65%;
+  margin: 0 auto;
+  width: auto;
+  height: 100vh;
 }
 .section5-text-01 {
   position: absolute;
@@ -527,7 +544,11 @@ img {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 70%;
+  left: 0;
+  margin: 0 auto;
+  display: block;
+  width: auto;
+  height: 100vh;
 }
 .section7-text-01 {
   position: absolute;
@@ -550,9 +571,11 @@ img {
 .wax-02 {
   position: absolute;
   left: 0;
+  right: 0;
   bottom: 0;
-  // max-width: 1185px;
-  width: 70%;
+  margin: 0 auto;
+  width: auto;
+  height: 100vh;
 }
 .section-08-text-01 {
   position: absolute;
@@ -651,8 +674,8 @@ img {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 65%;
-  // max-width: 976px;
+  width: auto;
+  height: 100vh;
 }
 .section-09-text {
   position: absolute;
@@ -684,8 +707,8 @@ img {
   right: 0;
   top: 55%;
   transform: translateY(-50%);
-  // max-width: 1116px;
-  width: 70%;
+  width: auto;
+  height: 100vh;
 }
 .section-11-text {
   position: relative;
@@ -704,8 +727,8 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // max-width: 1023px;
-  width: 65%;
+  width: auto;
+  height: 100vh;
 }
 .section-12-text-01 {
   position: absolute;
@@ -742,11 +765,11 @@ img {
 }
 
 .senzai-04 {
-  width: 65%;
+  width: auto;
+  height: 100vh;
   position: absolute;
   left: 0;
   bottom: 0;
-  // max-width: 1100px;
 }
 #section13 {
   .section-08-text-01 {
@@ -816,10 +839,12 @@ img {
 
 .senzai-05 {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 78%;
+  bottom: -100px;
+  right: 0;
+  left: 0;
+  display: block;
+  width: auto;
+  height: 100vh;
 }
 .section-13-text-01 {
   position: absolute;
@@ -884,10 +909,12 @@ img {
 .senzai-06 {
   position: absolute;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 70%;
-  // max-width: 1237px;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: 100vh;
 }
 .section-14-text-01 {
   position: relative;
@@ -919,8 +946,8 @@ img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65%;
-  // max-width: 1046px;
+  width: auto;
+  height: 100vh;
 }
 
 .kuma {
@@ -995,9 +1022,13 @@ img {
 
 .footer-contents {
   height: 100%;
+  padding: 0 114px 0 103px;
+  position: relative;
+  z-index: 2;
   display: flex;
-  justify-content: space-between;
-  padding: 10% 8% 200px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
 }
 .footer-left {
   display: flex;
@@ -1012,9 +1043,10 @@ img {
 .footer-logo {
   display: block;
   margin-left: -71px;
+  width: 283.844px;
 }
 .footer-info {
-  margin: 31px 0 53px;
+  margin: 31px 0 20px;
   a {
     position: relative;
     z-index: 2;
@@ -1032,11 +1064,11 @@ img {
   .info-text {
     color: var(--AURO_, #553219);
     text-align: justify;
-    font-family: $family-a-otf-jun-pro;
-    font-size: 20px;
+    font-family: $family-a-otf-jun-pro-light;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 505;
-    line-height: normal;
+    font-weight: 400;
+    margin-bottom: 4px;
     letter-spacing: 2px;
   }
   .info-tel {
@@ -1048,7 +1080,6 @@ img {
     font-weight: 600;
     line-height: normal;
     letter-spacing: 3.6px;
-    margin-top: 28px;
   }
 }
 .footer-sns {
@@ -1059,24 +1090,24 @@ img {
     z-index: 2;
   }
   img {
-    width: 59px;
-    height: 60px;
+    width: 43px;
+    height: 44px;
   }
 }
 .footer-nav {
-  margin-bottom: 75px;
+  margin-bottom: 3vh;
   li {
-    text-align: right;
+    text-align: left;
   }
   a {
     color: var(--AURO_, #553219);
     text-align: right;
-    font-family: $family-a-otf-jun-pro;
-    font-size: 20px;
+    font-family: $family-shirokuma;
+    font-size: 24px;
     font-style: normal;
-    font-weight: 505;
-    line-height: 50px;
-    letter-spacing: 2px;
+    font-weight: 400;
+    line-height: 40px; /* 166.667% */
+    letter-spacing: 2.4px;
     position: relative;
     z-index: 2;
   }
@@ -1085,6 +1116,11 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-top: 8vh;
+  width: 100%;
+  .shop-icon {
+    column-gap: 28px;
+  }
 }
 .footer-shop {
   a {
@@ -1097,20 +1133,17 @@ img {
   }
 }
 .footer-btm {
-  width: 84%;
-  position: absolute;
-  bottom: 74px;
-  display: flex;
-  justify-content: space-between;
+  margin-top: 4vh;
+  width: 100%;
   p {
     color: var(--AURO_, #553219);
-    text-align: center;
     font-family: $family-a-otf-jun-pro;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 1.4px;
+    margin-bottom: 20px;
   }
 }
 #page-top {
@@ -1119,6 +1152,41 @@ img {
   bottom: 43px;
   z-index: 2;
   cursor: pointer;
+  display: none;
+}
+.page-top-02 {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column-reverse;
+  row-gap: 10px;
+  img {
+    opacity: 0;
+    transition: opacity 0.5s;
+    &:nth-child(1) {
+      animation: fadeInOut 3s infinite;
+    }
+    &:nth-child(2) {
+      animation: fadeInOut 3s 1s infinite;
+    }
+    &:nth-child(3) {
+      animation: fadeInOut 3s 2s infinite;
+    }
+  }
+}
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  66.66% {
+    opacity: 0;
+  }
 }
 
 .side-menu {
@@ -1234,7 +1302,20 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     transform: translate(0, 0) rotate(7deg);
   }
 }
-
+.sp-bg {
+  display: none;
+}
+#footer {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  height: 100vh;
+  z-index: 6;
+  .fv-bg {
+    img {
+    }
+  }
+}
 @include media(bp790) {
   .sp-email-tel {
     display: block;
@@ -2092,7 +2173,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     gap: 16px;
     li {
       border-radius: 100px;
-      width: 144.86px;
+      width: 154.86px;
       a {
         display: block;
         color: var(--AURO_, #553219);
@@ -2106,7 +2187,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
         padding: 7px 12px 4px;
         border-radius: 100px;
         background-image: url(../images/side-bg-w.svg);
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
       }
     }
@@ -2167,6 +2248,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     }
   }
   #page-top {
+    display: block;
     right: 16px;
     width: 21px;
     height: 21px;
@@ -2199,5 +2281,15 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
       background-size: cover;
       background-repeat: no-repeat;
     }
+  }
+  .sp-bg {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    mix-blend-mode: multiply;
+    z-index: 1;
   }
 }
