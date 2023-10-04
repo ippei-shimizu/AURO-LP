@@ -15,6 +15,16 @@
   font-family: "A-OTF-UDReiminPro-Light";
   src: url("../fonts/A-OTF-UDReiminPro-Light.otf") format("opentype");
 }
+#section0 {
+  position: relative;
+  z-index: 999;
+}
+@media screen and (max-width: 790px) {
+  #section0 {
+    z-index: initial;
+  }
+}
+
 :root {
   --AURO_: #553219;
 }
@@ -200,7 +210,23 @@ img {
   z-index: 1;
   mix-blend-mode: multiply;
 }
+.fv-bg::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(../images/bg.png);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+@media screen and (max-width: 790px) {
+  .fv-bg::before {
+    display: none;
+  }
+}
 .fv-bg img {
+  display: none;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -210,6 +236,13 @@ img {
   .fv-bg img {
     display: none;
   }
+}
+
+#section17 .fv-bg::before {
+  display: none;
+}
+#section17 .fv-bg img {
+  display: block;
 }
 
 .bard {
@@ -1373,8 +1406,8 @@ img {
 
 .footer-logo {
   display: block;
-  margin-left: -49px;
-  width: 283.844px;
+  margin-left: -6px;
+  width: 218.844px;
 }
 
 .footer-info {
@@ -1914,7 +1947,8 @@ img {
     padding-bottom: 140px;
   }
   #section2 .penki-img {
-    width: 65%;
+    width: 27%;
+    min-width: 107pxx !important;
     display: block;
     margin: 0 auto;
   }
@@ -2181,7 +2215,8 @@ img {
   .penki-06 {
     -webkit-transform: initial;
             transform: initial;
-    width: 65%;
+    width: 32%;
+    min-width: 125pxx !important;
     margin: 0 auto;
     display: block;
   }
@@ -2327,7 +2362,8 @@ img {
   .senzai-01 {
     -webkit-transform: initial;
             transform: initial;
-    width: 65%;
+    width: 37%;
+    min-width: 147px !important;
     margin: 0 auto;
     display: block;
   }
@@ -2670,7 +2706,7 @@ img {
   }
   .footer-logo-link img {
     width: 152px;
-    margin-left: -24px;
+    margin-left: -4px;
   }
   .footer-left {
     display: grid;
@@ -2907,8 +2943,8 @@ img {
     -o-object-fit: cover;
        object-fit: cover;
     opacity: 1;
-    -webkit-animation: slideAnimation 55s linear infinite 0.2s;
-            animation: slideAnimation 55s linear infinite 0.2s;
+    -webkit-animation: slideAnimation 20s linear infinite 0.2s;
+            animation: slideAnimation 20s linear infinite 0.2s;
     -webkit-transform: translateX(-10%);
             transform: translateX(-10%);
   }
@@ -2967,7 +3003,7 @@ img {
   position: fixed;
   top: 57px;
   right: 53px;
-  z-index: 9999;
+  z-index: 99999;
   cursor: pointer;
 }
 .menu img {
@@ -3015,7 +3051,7 @@ img {
 .nav.open {
   opacity: 1;
   visibility: visible;
-  z-index: 20;
+  z-index: 9999;
 }
 .nav img {
   mix-blend-mode: multiply;
@@ -3246,4 +3282,4 @@ img {
   .nav-bg {
     width: 100%;
   }
-}/*# sourceMappingURL=style6.css.map */
+}/*# sourceMappingURL=style7.css.map */

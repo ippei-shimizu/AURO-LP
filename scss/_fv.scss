@@ -17,6 +17,14 @@
   src: url("../fonts/A-OTF-UDReiminPro-Light.otf") format("opentype");
 }
 
+#section0 {
+  position: relative;
+  z-index: 999;
+  @include media(bp790) {
+    z-index: initial;
+  }
+}
+
 :root {
   --AURO_: #553219;
 }
@@ -163,12 +171,36 @@ img {
   left: 0;
   z-index: 1;
   mix-blend-mode: multiply;
+  &::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/bg.png);
+    position: fixed;
+    left: 0;
+    top: 0;
+    @include media(bp790) {
+      display: none;
+    }
+  }
   img {
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
     @include media(bp790) {
       display: none;
+    }
+  }
+}
+#section17 {
+  .fv-bg {
+    &::before {
+      display: none;
+    }
+    img {
+      display: block;
     }
   }
 }
@@ -1164,8 +1196,8 @@ img {
 }
 .footer-logo {
   display: block;
-  margin-left: -49px;
-  width: 283.844px;
+  margin-left: -6px;
+  width: 218.844px;
 }
 .footer-info {
   margin: 31px 0 20px;
@@ -1471,7 +1503,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   }
   .fv-img-box {
     picture {
-      height: 100%; 
+      height: 100%;
     }
     img {
       object-position: 31%;
@@ -1542,7 +1574,8 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   #section2 {
     padding-bottom: 140px;
     .penki-img {
-      width: 65%;
+      width: 27%;
+      min-width: 107pxx !important;
       display: block;
       margin: 0 auto;
     }
@@ -1826,7 +1859,8 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
 
   .penki-06 {
     transform: initial;
-    width: 65%;
+    width: 32%;
+    min-width: 125pxx !important;
     margin: 0 auto;
     display: block;
   }
@@ -1984,7 +2018,8 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   }
   .senzai-01 {
     transform: initial;
-    width: 65%;
+    width: 37%;
+    min-width: 147px !important;
     margin: 0 auto;
     display: block;
   }
@@ -2332,7 +2367,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
   .footer-logo-link {
     img {
       width: 152px;
-      margin-left: -24px;
+      margin-left: -4px;
     }
   }
   .footer-left {
@@ -2592,7 +2627,7 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
     height: 100%;
     object-fit: cover;
     opacity: 1;
-    animation: slideAnimation 55s linear infinite 0.2s;
+    animation: slideAnimation 20s linear infinite 0.2s;
     transform: translateX(-10%);
   }
 

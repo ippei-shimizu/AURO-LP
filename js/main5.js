@@ -152,7 +152,7 @@ window.addEventListener("load", () => {
       loop: true,
       effect: "fade",
       autoplay: {
-        delay: 55000,
+        delay: 20000,
         disableOnInteraction: false,
       },
       speed: 0,
@@ -1276,28 +1276,32 @@ function updateSideVisibility() {
   const spSideSection2Top = document
     .getElementById("section2")
     .getBoundingClientRect().top;
+  const spSideSection3Top =
+    document.getElementById("section3").getBoundingClientRect().top + 300;
+  const section2PenkiImgTop = document
+    .getElementById("section2-penki-img")
+    .getBoundingClientRect().top;
   const spSideSection5Top = document
     .getElementById("section5")
     .getBoundingClientRect().top;
-  const spSideSection6Top = document
-    .getElementById("section6")
-    .getBoundingClientRect().top;
+  const spSideSection6Top =
+    document.getElementById("section6").getBoundingClientRect().top + 800;
   const spSideSection9Top = document
     .getElementById("section9")
-    .getBoundingClientRect().top;
+    .getBoundingClientRect().top + 600;
   const spSideSection10Top = document
     .getElementById("section10")
-    .getBoundingClientRect().top;
+    .getBoundingClientRect().top + 600;
   const spSideSection13Top = document
     .getElementById("section13")
-    .getBoundingClientRect().top;
+    .getBoundingClientRect().top + 1500;
 
   // 各要素の位置情報に基づき、指定された要素の表示状態を更新
   const spSideSection2Elem = document.getElementById("spSideSection2");
   const spSideSection3Elem = document.getElementById("spSideSection3");
   const spSideSection4Elem = document.getElementById("spSideSection4");
 
-  if (spSideSection2Top < window.innerHeight && spSideSection5Top > 0) {
+  if (spSideSection3Top < window.innerHeight && spSideSection6Top > 0) {
     spSideSection2Elem.style.opacity = "1";
     spSideSection2Elem.style.visibility = "visible";
   } else {

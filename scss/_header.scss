@@ -4,7 +4,7 @@
   position: fixed;
   top: 57px;
   right: 53px;
-  z-index: 9999;
+  z-index: 99999;
   cursor: pointer;
   img {
     height: auto;
@@ -48,7 +48,7 @@
   &.open {
     opacity: 1;
     visibility: visible;
-    z-index: 20;
+    z-index: 9999;
   }
   img {
     mix-blend-mode: multiply;
