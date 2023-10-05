@@ -2919,4 +2919,34 @@ $starCount: 13; // この数は .star 要素の総数に合わせて変更して
       transform: translateX(-55%);
     }
   }
+
+  #section3 {
+    .inner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+      flex-direction: column-reverse;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+  }
+  .ato-box-01 {
+    top: -72px;
+  }
+  .ato-03 {
+    top: 171px;
+  }
+  .ato-box-02 {
+    top: -58px;
+  }
+  #section13 .inner {
+    position: initial;
+  }
+  .inner {
+    max-height: initial!important;
+  }
 }
