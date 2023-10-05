@@ -157,6 +157,34 @@ window.addEventListener("load", () => {
       },
       speed: 0,
       allowTouchMove: false,
+
+      on: {
+        init: function () {
+          // 初期化時に非アクティブなスライドを非表示にする
+          this.slides.forEach((slide, index) => {
+            if (index !== this.activeIndex) {
+              slide.style.opacity = "0";
+              slide.style.zIndex = "-1";
+            } else {
+              slide.style.opacity = "1";
+              slide.style.zIndex = "0";
+            }
+          });
+        },
+
+        slideChangeTransitionEnd: function () {
+          // スライドが変わった後に非アクティブなスライドを非表示にする
+          this.slides.forEach((slide, index) => {
+            if (index !== this.activeIndex) {
+              slide.style.opacity = "0";
+              slide.style.zIndex = "-1";
+            } else {
+              slide.style.opacity = "1";
+              slide.style.zIndex = "0";
+            }
+          });
+        },
+      },
     };
 
     const swiper = new Swiper(".swiper-container", swiperParams);
@@ -1286,20 +1314,18 @@ function updateSideVisibility() {
     .getBoundingClientRect().top;
   const spSideSection6Top =
     document.getElementById("section6").getBoundingClientRect().top + 800;
-  const spSideSection9Top = document
-    .getElementById("section9")
-    .getBoundingClientRect().top + 600;
-  const spSideSection10Top = document
-    .getElementById("section10")
-    .getBoundingClientRect().top + 600;
-  const spSideSection13Top = document
-    .getElementById("section13")
-    .getBoundingClientRect().top + 1500;
+  const spSideSection9Top =
+    document.getElementById("section9").getBoundingClientRect().top + 600;
+  const spSideSection10Top =
+    document.getElementById("section10").getBoundingClientRect().top + 600;
+  const spSideSection13Top =
+    document.getElementById("section13").getBoundingClientRect().top + 1500;
 
   // 各要素の位置情報に基づき、指定された要素の表示状態を更新
   const spSideSection2Elem = document.getElementById("spSideSection2");
   const spSideSection3Elem = document.getElementById("spSideSection3");
   const spSideSection4Elem = document.getElementById("spSideSection4");
+  const linkAuroAboutElem = document.getElementById("linkAuroAbout");
 
   if (spSideSection3Top < window.innerHeight && spSideSection6Top > 0) {
     spSideSection2Elem.style.opacity = "1";
@@ -1323,6 +1349,14 @@ function updateSideVisibility() {
   } else {
     spSideSection4Elem.style.opacity = "0";
     spSideSection4Elem.style.visibility = "hidden";
+  }
+
+  if (spSideSection3Top < window.innerHeight && spSideSection13Top > 0) {
+    linkAuroAboutElem.style.opacity = "1";
+    linkAuroAboutElem.style.visibility = "visible";
+  } else {
+    linkAuroAboutElem.style.opacity = "0";
+    linkAuroAboutElem.style.visibility = "hidden";
   }
 }
 
