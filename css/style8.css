@@ -1853,6 +1853,303 @@ img {
   display: none;
 }
 
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  max-height: 1024px;
+  margin: 0 auto;
+}
+
+#section3 .text-box:nth-child(even) {
+  margin: 30px 0;
+}
+#section3 .text-box:last-child {
+  margin-top: 60px;
+}
+
+.penki-02,
+.penki-03,
+.penki-05 {
+  width: 100%;
+  height: auto;
+}
+
+.section-3-text {
+  top: 200px;
+  margin-left: 118px;
+}
+
+.ato-06 {
+  position: relative;
+  top: -42px;
+}
+
+.ato-box-01 {
+  position: initial;
+}
+
+.ato-01 {
+  position: absolute;
+  top: 95px;
+  left: 38%;
+}
+
+.ato-02 {
+  top: 50px;
+  left: 31%;
+}
+
+.ato-03 {
+  position: absolute;
+  bottom: 17px;
+}
+
+.ato-04 {
+  position: absolute;
+  right: 14%;
+  top: 197px;
+}
+
+.ato-07 {
+  top: 3%;
+  left: 3%;
+}
+
+.ato-08 {
+  top: 77%;
+  left: 7%;
+}
+
+.ato-09 {
+  top: 18%;
+  right: 27%;
+}
+
+.ato-10 {
+  top: 22%;
+  right: 18%;
+}
+
+.ato-11 {
+  top: 16%;
+  right: 14%;
+}
+
+.ato-12 {
+  top: 34%;
+  right: 15%;
+}
+
+.ato-13 {
+  bottom: 7%;
+  right: 14%;
+}
+
+.ato-14 {
+  bottom: 3%;
+  right: 6%;
+}
+
+.ato-15 {
+  bottom: 10%;
+  right: 9%;
+}
+
+.ato-16 {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  z-index: 2;
+}
+
+.penki-06 {
+  max-width: 460px;
+}
+
+.wax-01 {
+  width: 100%;
+  height: auto;
+}
+
+.section7-text-01 {
+  top: 20%;
+}
+
+.wax-02,
+.wax-03,
+.senzai-02 {
+  width: 100%;
+  height: auto;
+}
+
+.section-09-text {
+  top: 10%;
+}
+
+.section-11-text {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 57%;
+  top: 140px;
+}
+
+.senzai-03 {
+  width: 100%;
+  height: auto;
+}
+
+.awa-01 {
+  left: 21%;
+  top: 6%;
+}
+
+.awa-02 {
+  top: -1%;
+  right: 24%;
+}
+
+.senzai-04 {
+  width: 100%;
+  height: auto;
+}
+
+#section13 .section-08-text-01 {
+  right: -14%;
+  top: 5%;
+}
+#section13 .section-08-text-02 {
+  right: -14%;
+  top: 16%;
+}
+#section13 .section-08-text-03 {
+  right: -14%;
+  top: 27%;
+}
+#section13 .section-08-text-04 {
+  right: -20%;
+  bottom: 21%;
+}
+#section13 .section-08-text-05 {
+  right: -20%;
+  bottom: 15%;
+}
+
+.awa-03 {
+  top: -8%;
+}
+
+.awa-04 {
+  top: -8%;
+  left: 10%;
+}
+
+.awa-08 {
+  top: -9%;
+  right: 5%;
+}
+
+.awa-09 {
+  top: -4%;
+  right: -2%;
+}
+
+.awa-10 {
+  top: -2%;
+  right: -5%;
+}
+
+.awa-11 {
+  right: -7%;
+}
+
+.awa-12 {
+  top: 55%;
+  right: 0%;
+}
+
+.awa-13 {
+  bottom: 3%;
+  right: -3%;
+}
+
+.awa-07 {
+  top: initial;
+  left: initial;
+  bottom: 52px;
+  right: 44px;
+}
+
+.awa-06 {
+  top: -11%;
+  left: 23%;
+}
+
+.awa-05 {
+  top: initial;
+  left: initial;
+  top: 55%;
+  right: -35px;
+}
+
+.senzai-05 {
+  width: 100%;
+  height: auto;
+}
+
+.section-13-text-01 {
+  top: 16%;
+}
+
+.senzai-06 {
+  width: 100%;
+  height: auto;
+}
+
+.section-14-text-01 {
+  right: 0%;
+  top: 6%;
+}
+
+.section-14-text-02 {
+  right: 0%;
+  top: 7%;
+}
+
+.section-14-text-03 {
+  right: 0%;
+  top: 8%;
+}
+
+.section-14-text-04 {
+  right: 4%;
+  margin-top: 27%;
+}
+
+.senzai-07 {
+  width: 100%;
+  height: auto;
+}
+
+#section13 .inner {
+  max-height: 762px;
+  max-width: 1072px;
+  margin-left: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+#section14 .inner {
+  margin-left: 0;
+}
+#section14 .inner .senzai-06 {
+  margin-left: -12%;
+  bottom: 0;
+  top: initial;
+}
+
 @media screen and (max-width: 790px) {
   .sp-none {
     display: none;
