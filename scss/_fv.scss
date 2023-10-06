@@ -2262,8 +2262,8 @@ $starCount: 21; // この数は .star 要素の総数に合わせて変更して
   }
   .star-11 {
     position: absolute;
-    left: 61%;
-    bottom: 0;
+    left: 64%;
+    bottom: -44px;
     width: 13px;
     height: 16px;
   }
@@ -2373,10 +2373,11 @@ $starCount: 21; // この数は .star 要素の総数に合わせて変更して
     }
   }
   .senzai-04 {
-    position: initial;
     width: 114%;
-    margin: 164px auto 0 -24px;
+    margin: 224px auto 0 -24px;
     display: block;
+    position: initial;
+    transform: initial !important;
   }
   .section-08-text-04-02 {
     display: block;
@@ -2801,6 +2802,9 @@ $starCount: 21; // この数は .star 要素の総数に合わせて変更して
     }
     .wax-01 {
       height: auto;
+      position: initial;
+      width: 126%;
+      transform: initial!important;
     }
   }
   #section8 {
@@ -2964,6 +2968,10 @@ $starCount: 21; // この数は .star 要素の総数に合わせて変更して
   }
   .inner {
     max-height: initial !important;
+    position: relative;
+    top: initial;
+    left: initial;
+    transform: initial;
   }
 }
 .ato-20 {
@@ -3171,4 +3179,100 @@ $starCount: 21; // この数は .star 要素の総数に合わせて変更して
 .awa-26 {
   top: 19%;
   right: 24%;
+}
+
+@include media(bp790) {
+  .ato-20,
+  .ato-21,
+  .ato-22,
+  .ato-23,
+  .ato-27,
+  .ato-28,
+  .star-012,
+  .star-013,
+  .star-014,
+  .star-015,
+  .star-016,
+  .star-017,
+  .star-018,
+  .star-019,
+  .awa-011,
+  .awa-012,
+  .awa-013,
+  .awa-014,
+  .awa-015,
+  .awa-016,
+  .awa-017,
+  .awa-27 {
+    display: none;
+  }
+  .awa-16 {
+    width: 37px;
+    top: -100px;
+    left: 30%;
+  }
+  .awa-17 {
+    top: 8%;
+    left: 56%;
+    width: 41px;
+  }
+  .awa-14 {
+    width: 38px;
+    top: 9%;
+    left: 9%;
+  }
+  .awa-15 {
+    width: 18px;
+    top: 7%;
+    left: 40%;
+  }
+  .awa-18 {
+    width: 44px;
+    top: 4%;
+    left: 70%;
+  }
+  .awa-19 {
+    width: 17px;
+    top: 36%;
+    left: 77%;
+  }
+  .awa-20 {
+    width: 17px;
+    top: 50%;
+    left: 47%;
+  }
+  .awa-21 {
+    width: 36px;
+    top: 31%;
+    left: 30%;
+  }
+  .awa-22 {
+    width: 42px;
+    top: 47%;
+    right: 12%;
+  }
+  .awa-23 {
+    top: 23%;
+    left: 64%;
+  }
+  .awa-24 {
+    top: 15%;
+    left: 66%;
+  }
+  .awa-25 {
+    width: 161px;
+    height: 182px;
+    top: 9%;
+    right: 9%;
+  }
+  .awa-26 {
+    top: 19%;
+    right: 24%;
+  }
+  .awa-29 {
+    display: none;
+  }
+  .awa-28 {
+    display: none;
+  }
 }

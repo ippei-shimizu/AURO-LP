@@ -575,7 +575,7 @@ window.addEventListener("load", () => {
           opacity: 1,
           ease: "none",
           delay: 0.2 * index,
-          duration: 0.02,
+          duration: 0.6,
         });
 
         scrollTriggers.push(animation.scrollTrigger);
@@ -593,7 +593,7 @@ window.addEventListener("load", () => {
           opacity: 1,
           ease: "none",
           delay: 0.2 * index,
-          duration: 0.02,
+          duration: 0.6,
         });
 
         scrollTriggers.push(animation.scrollTrigger);
