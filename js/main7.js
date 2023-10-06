@@ -44,10 +44,10 @@ $(document).ready(function () {
 
   function handleResponsiveImages() {
     const imageMappings = [
-      { selector: ".penki-02", defaultSrc: "./images/penki-02-1.png" },
-      { selector: ".penki-05", defaultSrc: "./images/penki-4-1.png" },
-      { selector: ".wax-01", defaultSrc: "./images/wax-01-1.png" },
-      { selector: ".senzai-04", defaultSrc: "./images/senzai-04.png" },
+      { selector: ".penki-02", defaultSrc: "./images/penki-02-2.png" },
+      { selector: ".penki-05", defaultSrc: "./images/penki-4-1-2.png" },
+      { selector: ".wax-01", defaultSrc: "./images/wax-01-2.png" },
+      { selector: ".senzai-04", defaultSrc: "./images/senzai-04-1.png" },
     ];
 
     imageMappings.forEach((mapping) => {
@@ -317,6 +317,24 @@ window.addEventListener("load", () => {
       const targetId = event.currentTarget.getAttribute("href");
       const targetElement = document.querySelector(targetId);
       const headerOffset = 220;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerOffset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    });
+  });
+
+  const pageLinksAbout = document.querySelectorAll(".page-link-about");
+  pageLinksAbout.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+      const headerOffset = 0;
       const targetPosition =
         targetElement.getBoundingClientRect().top +
         window.pageYOffset -
@@ -701,7 +719,18 @@ window.addEventListener("load", () => {
             { opacity: 0 }
           );
           gsap.set(
-            [".ato-01", ".ato-02", ".ato-03", ".ato-04", ".ato-05", ".ato-06"],
+            [
+              ".ato-01",
+              ".ato-02",
+              ".ato-03",
+              ".ato-04",
+              ".ato-05",
+              ".ato-06",
+              ".ato-20",
+              ".ato-21",
+              ".ato-22",
+              ".ato-23",
+            ],
             { opacity: 0 }
           );
           gsap.set(
@@ -716,6 +745,17 @@ window.addEventListener("load", () => {
               ".ato-14",
               ".ato-15",
               ".ato-16",
+              ".awa-011",
+              ".awa-012",
+              ".awa-013",
+              ".awa-014",
+              ".awa-015",
+              ".awa-016",
+              ".awa-017",
+              ".awa-018",
+              ".awa-27",
+              ".awa-28",
+              ".awa-29",
             ],
             { opacity: 0 }
           );
@@ -856,12 +896,17 @@ window.addEventListener("load", () => {
               ".ato-04",
               ".ato-05",
               ".ato-06",
+              ".ato-20",
+              ".ato-21",
+              ".ato-22",
+              ".ato-23",
+              ".ato-24",
             ].forEach((selector, i) => {
               gsap.to(selector, {
                 opacity: 1,
                 ease: "none",
                 delay: 0.2 * (index + i),
-                duration: 0.02,
+                duration: 0.6,
               });
             });
           }
@@ -900,12 +945,14 @@ window.addEventListener("load", () => {
               ".ato-14",
               ".ato-15",
               ".ato-16",
+              ".ato-27",
+              ".ato-28",
             ].forEach((selector, i) => {
               gsap.to(selector, {
                 opacity: 1,
                 ease: "none",
                 delay: 0.2 * (index + i),
-                duration: 0.02,
+                duration: 0.6,
               });
             });
           }
@@ -1102,10 +1149,23 @@ window.addEventListener("load", () => {
               },
               ease: "power1.out",
             });
-            gsap.to(".awa-02", {
-              opacity: 1,
-              ease: "power1.out",
-            });
+            gsap.to(
+              [
+                ".awa-02",
+                ".awa-011",
+                ".awa-012",
+                ".awa-013",
+                ".awa-014",
+                ".awa-015",
+                ".awa-016",
+                ".awa-017",
+                ".awa-018",
+              ],
+              {
+                opacity: 1,
+                ease: "power1.out",
+              }
+            );
           }
           if (anchorLink === "page14") {
             gsap.to(".senzai-04", {
@@ -1144,6 +1204,9 @@ window.addEventListener("load", () => {
                 ".awa-11",
                 ".awa-12",
                 ".awa-13",
+                ".awa-27",
+                ".awa-28",
+                ".awa-29",
               ],
               {
                 opacity: 1,
