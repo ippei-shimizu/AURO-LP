@@ -84,7 +84,6 @@
 .nav-list {
   display: flex;
   column-gap: 107px;
-  margin-bottom: 100px;
   ul {
     display: flex;
     align-items: center;
@@ -93,12 +92,33 @@
   a {
     color: var(--AURO_, #553219);
     text-align: center;
-    font-family: $family-a-otf-jun-pro;
+    font-family: $family-shirokuma;
     font-size: 24px;
     font-style: normal;
     font-weight: 505;
     line-height: normal;
     letter-spacing: 2.4px;
+  }
+}
+.auro-blog-link {
+  color: var(--AURO_, #553219);
+  font-family: $family-shirokuma;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+  margin: 63px auto;
+  span {
+    letter-spacing: -6px;
+    padding-right: 12px;
+  }
+  @include media(bp790) {
+    font-size: 20px;
+    margin: 0 auto;
+    span {
+      letter-spacing: -4px;
+    }
   }
 }
 .shop-list {

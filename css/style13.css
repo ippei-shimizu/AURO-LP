@@ -3853,7 +3853,6 @@ img {
   -webkit-column-gap: 107px;
      -moz-column-gap: 107px;
           column-gap: 107px;
-  margin-bottom: 100px;
 }
 .nav-list ul {
   display: -webkit-box;
@@ -3869,12 +3868,36 @@ img {
 .nav-list a {
   color: var(--AURO_, #553219);
   text-align: center;
-  font-family: "A-OTF-UDReiminPro-Medium";
+  font-family: "001Shirokuma-Regular";
   font-size: 24px;
   font-style: normal;
   font-weight: 505;
   line-height: normal;
   letter-spacing: 2.4px;
+}
+
+.auro-blog-link {
+  color: var(--AURO_, #553219);
+  font-family: "001Shirokuma-Regular";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+  margin: 63px auto;
+}
+.auro-blog-link span {
+  letter-spacing: -6px;
+  padding-right: 12px;
+}
+@media screen and (max-width: 790px) {
+  .auro-blog-link {
+    font-size: 20px;
+    margin: 0 auto;
+  }
+  .auro-blog-link span {
+    letter-spacing: -4px;
+  }
 }
 
 .shop-list p {
